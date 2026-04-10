@@ -1,14 +1,17 @@
 {
   "rewrites": [
-    { "source": "/it", "destination": "/pages/design/it/" },
-    { "source": "/design", "destination": "/pages/design/design-role/" },
-    { "source": "/work", "destination": "/pages/work/" },
-    { "source": "/work/:project", "destination": "/pages/work/:project/" },
-    { "source": "/design", "destination": "/pages/design/" },
-    { "source": "/ai-lab", "destination": "/pages/ai-lab/" },
-    { "source": "/blog", "destination": "/pages/blog/" },
-    { "source": "/toolbox", "destination": "/pages/toolbox/" },
-    { "source": "/resume", "destination": "/pages/resume/" }
+    { "source": "/", "destination": "/pages/index.html" },
+    { "source": "/work", "destination": "/pages/work/index.html" },
+    { "source": "/work/:project", "destination": "/pages/work/:project/index.html" },
+    { "source": "/design", "destination": "/pages/design/design-role/index.html" },
+    { "source": "/design-archive", "destination": "/pages/design/index.html" },
+    { "source": "/it", "destination": "/pages/design/it/index.html" },
+    { "source": "/ai-lab", "destination": "/pages/ai-lab/index.html" },
+    { "source": "/blog", "destination": "/pages/blog/index.html" },
+    { "source": "/blog/:post", "destination": "/pages/blog/:post/index.html" },
+    { "source": "/toolbox", "destination": "/pages/toolbox/index.html" },
+    { "source": "/resume", "destination": "/pages/resume/index.html" },
+    { "source": "/:path*", "destination": "/pages/:path*" }
   ],
   "headers": [
     {
