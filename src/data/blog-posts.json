@@ -5,7 +5,7 @@
     "date": "2026-03-15",
     "tags": ["CSS", "Accessibility", "Design Tokens", "Figma"],
     "description": "A 400-word case study on translating a Figma design system component into semantic, accessible HTML with CSS custom properties.",
-    "url": "/pages/blog/how-i-built-the-token-editor/",
+    "url": "/blog/how-i-built-the-token-editor/",
     "reading_time": "4 min read"
   },
   {
@@ -14,7 +14,7 @@
     "date": "2026-03-08",
     "tags": ["AI", "Midjourney", "Process"],
     "description": "How I iterate on AI image generation prompts systematically. The difference between pressing generate and directing a tool.",
-    "url": "/pages/blog/my-midjourney-prompt-system/",
+    "url": "/blog/my-midjourney-prompt-system/",
     "reading_time": "5 min read"
   },
   {
@@ -23,7 +23,7 @@
     "date": "2026-02-28",
     "tags": ["SVG", "Canvas", "JavaScript", "Performance"],
     "description": "A decision framework for choosing between SVG and Canvas rendering, with real examples from my icon system project.",
-    "url": "/pages/blog/when-to-use-svg-vs-canvas/",
+    "url": "/blog/when-to-use-svg-vs-canvas/",
     "reading_time": "6 min read"
   },
   {
@@ -32,7 +32,7 @@
     "date": "2026-02-20",
     "tags": ["CSS", "Container Queries", "TIL"],
     "description": "Quick post: how container queries let me write one card component that adapts to any layout context.",
-    "url": "/pages/blog/til-css-container-queries/",
+    "url": "/blog/til-css-container-queries/",
     "reading_time": "2 min read"
   },
   {
@@ -41,7 +41,7 @@
     "date": "2026-02-12",
     "tags": ["Photoshop", "TIL", "Photography"],
     "description": "Short post on the technique that separates texture from colour in portraits — why it matters and my 3-layer setup.",
-    "url": "/pages/blog/til-frequency-separation/",
+    "url": "/blog/til-frequency-separation/",
     "reading_time": "3 min read"
   }
 ]

@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SITE_URL = 'https://codeandcomposite.com';
-const BLOG_URL = SITE_URL + '/pages/blog/';
+const BLOG_URL = SITE_URL + '/blog/';
 
 const dataPath = path.resolve(__dirname, '..', 'src', 'data', 'blog-posts.json');
 const outputPath = path.resolve(__dirname, '..', 'public', 'feed.xml');

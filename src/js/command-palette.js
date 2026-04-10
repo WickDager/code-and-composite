@@ -19,14 +19,14 @@
   var previousFocus = null;
 
   var sectionLinks = [
-    { title: 'Go to Work', url: '/pages/work/', type: 'section' },
-    { title: 'Go to Design', url: '/pages/design/', type: 'section' },
-    { title: 'Go to AI Lab', url: '/pages/ai-lab/', type: 'section' },
-    { title: 'Go to Blog', url: '/pages/blog/', type: 'section' },
-    { title: 'Go to Toolbox', url: '/pages/toolbox/', type: 'section' },
-    { title: 'Go to Resume', url: '/pages/resume/', type: 'section' },
-    { title: 'Go to Token Editor', url: '/pages/work/token-editor/', type: 'section' },
-    { title: 'Go to Contrast Checker', url: '/pages/work/contrast-checker/', type: 'section' }
+    { title: 'Go to Work', url: '/work/', type: 'section' },
+    { title: 'Go to Design', url: '/design/', type: 'section' },
+    { title: 'Go to AI Lab', url: '/ai-lab/', type: 'section' },
+    { title: 'Go to Blog', url: '/blog/', type: 'section' },
+    { title: 'Go to Toolbox', url: '/toolbox/', type: 'section' },
+    { title: 'Go to Resume', url: '/resume/', type: 'section' },
+    { title: 'Go to Token Editor', url: '/work/token-editor/', type: 'section' },
+    { title: 'Go to Contrast Checker', url: '/work/contrast-checker/', type: 'section' }
   ];
 
   function escapeHtml(str) {

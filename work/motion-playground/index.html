@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Motion Playground — CSS animation demos with revealable code. A project by Code &amp; Composite.">
+  <meta name="author" content="Code &amp; Composite">
+  <meta name="theme-color" content="#534AB7">
+
+  <!-- Security -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://formspree.io; frame-ancestors 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Motion Playground — Code &amp; Composite">
+  <meta property="og:description" content="CSS animation demos — click to reveal the code.">
+  <meta property="og:image" content="/public/images/og/og-home.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://codeandcomposite.com/work/motion-playground/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Motion Playground — Code &amp; Composite">
+  <meta name="twitter:description" content="CSS animation demos — click to reveal the code.">
+  <meta name="twitter:image" content="/public/images/og/og-home.jpg">
+
+  <title>Motion Playground — Code &amp; Composite</title>
+  <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="/public/site.webmanifest">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://codeandcomposite.com/work/motion-playground/">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Critical CSS inlined -->
+  <style>
+    :root{--color-bg:#ffffff;--color-bg-secondary:#f7f6f3;--color-accent:#534ab7;--color-text-primary:#1a1a18;--color-text-secondary:#6b6a65;--color-text-tertiary:#9c9a92;--color-border:rgba(0,0,0,0.1);--color-border-tertiary:rgba(0,0,0,0.04);--nav-height:56px;--color-text-inverse:#ffffff;--color-accent-hover:#4439a0;--fs-xs:clamp(0.7rem,0.65rem + 0.25vw,0.8rem);--fs-sm:clamp(0.8rem,0.75rem + 0.25vw,0.9rem);--fs-base:clamp(0.9rem,0.85rem + 0.25vw,1rem);--fs-md:clamp(1rem,0.9rem + 0.5vw,1.25rem);--fs-lg:clamp(1.15rem,1rem + 0.75vw,1.5rem);--fs-xl:clamp(1.4rem,1.1rem + 1.5vw,2rem);--fs-2xl:clamp(1.75rem,1.3rem + 2.25vw,2.75rem);--fs-hero:clamp(2.5rem,1.5rem + 5vw,4.5rem);--font-sans:'Inter',system-ui,sans-serif;--font-mono:'JetBrains Mono',monospace;--lh-tight:1.1;--lh-snug:1.25;--lh-relaxed:1.75;--fw-medium:500;--fw-semibold:600;--radius-sm:6px;--radius-md:10px;--radius-lg:16px;--radius-full:9999px;--space-2xs:4px;--space-xs:8px;--space-sm:12px;--space-md:16px;--space-lg:24px;--space-xl:32px;--space-2xl:48px;--space-3xl:64px;--space-4xl:96px;--transition:150ms ease;--shadow-md:0 4px 12px rgba(0,0,0,0.08);--shadow-sm:0 1px 3px rgba(0,0,0,0.06);--grain-opacity:0.03;--max-width:1200px}
+    body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:var(--grain-opacity);background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px 256px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-sans);font-size:var(--fs-base);line-height:1.5;color:var(--color-text-primary);background:var(--color-bg);-webkit-font-smoothing:antialiased}
+    .skip-link{position:absolute;top:-100%;left:var(--space-md);z-index:10000;background:var(--color-accent);color:var(--color-text-inverse);padding:var(--space-xs) var(--space-md);border-radius:var(--radius-sm);font-size:var(--fs-sm);font-weight:var(--fw-medium)}.skip-link:focus{top:var(--space-md)}
+    .site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-height);display:flex;align-items:center;justify-content:space-between;padding:0 var(--space-lg);background:color-mix(in srgb, var(--color-bg) 85%, transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:0.5px solid var(--color-border-tertiary)}
+    .site-nav__logo{display:flex;align-items:center;gap:var(--space-xs);font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--color-text-primary);text-decoration:none}.site-nav__logo:hover{color:var(--color-accent)}
+    .site-nav__logo-icon{font-size:var(--fs-md);color:var(--color-accent)}
+    .site-nav__amp{color:var(--color-accent);font-style:italic}
+    .site-nav__links{display:flex;align-items:center;gap:var(--space-xs)}
+    .site-nav__link{font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--color-text-secondary);text-decoration:none;padding:var(--space-2xs) var(--space-xs);border-radius:var(--radius-sm);transition:color var(--transition),background var(--transition)}.site-nav__link:hover{color:var(--color-text-primary);background:var(--color-bg-secondary)}
+    .site-nav__theme{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:var(--radius-sm);color:var(--color-text-secondary);margin-left:var(--space-xs);cursor:pointer;background:none;border:none}.site-nav__theme:hover{color:var(--color-text-primary);background:var(--color-bg-secondary)}
+    .icon--sun{display:none}.icon--moon{display:block}html.dark .icon--sun{display:block}html.dark .icon--moon{display:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 var(--space-lg)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-xs);font-family:var(--font-sans);font-size:var(--fs-sm);font-weight:var(--fw-medium);padding:10px 20px;border-radius:var(--radius-md);border:0.5px solid var(--color-border);cursor:pointer;text-decoration:none;transition:all var(--transition);line-height:1;white-space:nowrap}.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm)}.btn:active{transform:translateY(0)}
+    .btn--primary{background:var(--color-accent);color:var(--color-text-inverse);border-color:var(--color-accent)}.btn--primary:hover{background:var(--color-accent-hover);border-color:var(--color-accent-hover)}
+    .btn--secondary{background:var(--color-bg);color:var(--color-text-primary);border-color:var(--color-border)}.btn--secondary:hover{background:var(--color-bg-secondary)}
+    .fade-in{opacity:0;transform:translateY(16px);transition:opacity 300ms ease,transform 300ms ease}.fade-in.visible{opacity:1;transform:translateY(0)}
+    section{padding:var(--space-3xl) 0}
+    .section-header{margin-bottom:var(--space-xl)}.section-header__eyebrow{font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--space-xs)}.section-header__title{font-size:var(--fs-xl);font-weight:var(--fw-semibold);color:var(--color-text-primary);letter-spacing:-0.02em}
+    .site-footer{padding:var(--space-3xl) 0 var(--space-xl);border-top:0.5px solid var(--color-border-tertiary)}.site-footer__inner{display:grid;grid-template-columns:1fr 2fr;gap:var(--space-2xl)}.site-footer__brand{display:flex;flex-direction:column;gap:var(--space-xs)}.site-footer__logo{font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--color-text-primary)}.site-footer__tagline{font-size:var(--fs-xs);color:var(--color-text-secondary)}.site-footer__links{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg)}.site-footer__heading{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:var(--space-xs)}.site-footer__links a{display:block;font-size:var(--fs-xs);color:var(--color-text-secondary);text-decoration:none;padding:var(--space-2xs) 0;transition:color var(--transition)}.site-footer__links a:hover{color:var(--color-accent)}.site-footer__bottom{grid-column:1/-1;margin-top:var(--space-lg);padding-top:var(--space-lg);border-top:0.5px solid var(--color-border-tertiary)}.site-footer__copy{font-size:var(--fs-xs);color:var(--color-text-tertiary)}
+    @media(max-width:768px){.site-nav__links{display:none}.site-nav__links.open{display:flex;position:fixed;top:var(--nav-height);left:0;right:0;bottom:0;background:var(--color-bg);flex-direction:column;align-items:center;justify-content:center;gap:var(--space-md);z-index:999}.site-footer__inner{grid-template-columns:1fr}.site-footer__links{grid-template-columns:1fr}}
+    @media(prefers-color-scheme:dark){:root{--color-bg:#111110;--color-bg-secondary:#1a1a18;--color-text-primary:#e8e6de;--color-text-secondary:#a3a198;--color-text-tertiary:#6b6a63;--color-border:rgba(255,255,255,0.1);--color-border-tertiary:rgba(255,255,255,0.04);--color-accent:#7f77dd;--color-accent-hover:#948de8;--color-text-inverse:#1a1a18}}
+
+    /* Page-specific styles */
+    .page-header{padding:calc(var(--nav-height) + var(--space-3xl)) 0 var(--space-2xl);text-align:center}
+    .page-header__eyebrow{font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--space-xs)}
+    .page-header__title{font-size:var(--fs-2xl);font-weight:var(--fw-semibold);color:var(--color-text-primary);letter-spacing:-0.03em;line-height:var(--lh-tight);margin-bottom:var(--space-sm)}
+    .page-header__desc{font-size:var(--fs-md);color:var(--color-text-secondary);max-width:55ch;margin:0 auto;line-height:var(--lh-relaxed)}
+    .back-link{display:inline-flex;align-items:center;gap:var(--space-2xs);font-size:var(--fs-xs);color:var(--color-text-secondary);text-decoration:none;margin-bottom:var(--space-lg);transition:color var(--transition)}.back-link:hover{color:var(--color-accent)}
+
+    .motion-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:var(--space-md)}
+    .motion-card{background:var(--color-bg);border:0.5px solid var(--color-border-tertiary);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:all var(--transition)}
+    .motion-card:hover{border-color:var(--color-border);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+    .motion-card__stage{height:160px;display:flex;align-items:center;justify-content:center;background:var(--color-bg-secondary);position:relative;overflow:hidden}
+    .motion-card__demo{width:48px;height:48px;background:var(--color-accent);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:#fff;font-size:var(--fs-lg);font-weight:700}
+
+    /* Animation classes applied on hover */
+    .motion-card:hover .anim-bounce{animation:bounce 0.6s ease infinite}
+    .motion-card:hover .anim-fade{animation:fadeIn 0.8s ease infinite alternate}
+    .motion-card:hover .anim-slide{animation:slideIn 0.6s ease infinite alternate}
+    .motion-card:hover .anim-pulse{animation:pulse 0.8s ease infinite}
+    .motion-card:hover .anim-shake{animation:shake 0.5s ease infinite}
+    .motion-card:hover .anim-flip{animation:flipIn 0.8s ease infinite alternate}
+    .motion-card:hover .anim-scale{animation:scaleUp 0.5s ease infinite alternate}
+    .motion-card:hover .anim-rotate{animation:rotate360 1s linear infinite}
+
+    .motion-card__info{padding:var(--space-md) var(--space-lg);display:flex;align-items:center;justify-content:space-between}
+    .motion-card__name{font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--color-text-primary);text-transform:capitalize}
+    .motion-card__hint{font-size:11px;color:var(--color-text-tertiary)}
+
+    .motion-card__code{max-height:0;overflow:hidden;transition:max-height 300ms ease,padding 300ms ease;background:var(--color-bg-secondary)}
+    .motion-card__code.open{max-height:300px;padding:var(--space-md) var(--space-lg)}
+    .motion-card__code code{font-family:var(--font-mono);font-size:11px;line-height:1.7;color:var(--color-text-secondary);white-space:pre;display:block;overflow-x:auto}
+
+    /* Keyframes */
+    @keyframes bounce{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-24px)}
+    }
+    @keyframes fadeIn{
+      0%{opacity:0.2;transform:scale(0.95)}
+      100%{opacity:1;transform:scale(1)}
+    }
+    @keyframes slideIn{
+      0%{transform:translateX(-30px);opacity:0.5}
+      100%{transform:translateX(30px);opacity:1}
+    }
+    @keyframes pulse{
+      0%,100%{transform:scale(1)}
+      50%{transform:scale(1.2)}
+    }
+    @keyframes shake{
+      0%,100%{transform:translateX(0)}
+      25%{transform:translateX(-6px)}
+      75%{transform:translateX(6px)}
+    }
+    @keyframes flipIn{
+      0%{transform:perspective(400px) rotateY(0deg)}
+      100%{transform:perspective(400px) rotateY(180deg)}
+    }
+    @keyframes scaleUp{
+      0%{transform:scale(0.8)}
+      100%{transform:scale(1.2)}
+    }
+    @keyframes rotate360{
+      0%{transform:rotate(0deg)}
+      100%{transform:rotate(360deg)}
+    }
+
+    @media(max-width:768px){.motion-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}}
+  </style>
+
+  <!-- Non-critical CSS loaded async -->
+  <link rel="stylesheet" href="/src/css/tokens.css">
+  <link rel="stylesheet" href="/src/css/global.css">
+  <link rel="stylesheet" href="/src/css/layout.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <link rel="stylesheet" href="/src/css/dark-mode.css">
+  <link rel="stylesheet" href="/src/css/animations.css" media="print" onload="this.media='all'">
+  <link rel="noscript" href="/src/css/animations.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div id="nav-container"></div>
+
+  <main id="main-content" class="page-main">
+    <div class="container">
+
+      <a href="/work/" class="back-link" aria-label="Back to all work">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        All projects
+      </a>
+
+      <header class="page-header fade-in">
+        <p class="page-header__eyebrow">Project</p>
+        <h1 class="page-header__title">Motion Playground</h1>
+        <p class="page-header__desc">CSS animation demos — hover to preview, click to reveal the code.</p>
+      </header>
+
+      <section class="fade-in" aria-label="Animation demos">
+        <div class="motion-grid">
+
+          <!-- Bounce -->
+          <div class="motion-card" tabindex="0" role="button" aria-label="Bounce animation — click to view code" data-anim="bounce">
+            <div class="motion-card__stage">
+              <div class="motion-card__demo anim-bounce">B</div>
+            </div>
+            <div class="motion-card__info">
+              <span class="motion-card__name">Bounce</span>
+              <span class="motion-card__hint">Click for code</span>
+            </div>
+            <div class="motion-card__code" aria-hidden="true">
+              <code>@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-24px); }
+}
+
+.element {
+  animation: bounce 0.6s ease infinite;
+}</code>
+            </div>
+          </div>
+
+          <!-- Fade -->
+          <div class="motion-card" tabindex="0" role="button" aria-label="Fade animation — click to view code" data-anim="fade">
+            <div class="motion-card__stage">
+              <div class="motion-card__demo anim-fade">F</div>
+            </div>
+            <div class="motion-card__info">
+              <span class="motion-card__name">Fade</span>
+              <span class="motion-card__hint">Click for code</span>
+            </div>
+            <div class="motion-card__code" aria-hidden="true">
+              <code>@keyframes fadeIn {
+  0% { opacity: 0.2; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.element {
+  animation: fadeIn 0.8s ease infinite alternate;
+}</code>
+            </div>
+          </div>
+
+          <!-- Slide -->
+          <div class="motion-card" tabindex="0" role="button" aria-label="Slide animation — click to view code" data-anim="slide">
+            <div class="motion-card__stage">
+              <div class="motion-card__demo anim-slide">S</div>
+            </div>
+            <div class="motion-card__info">
+              <span class="motion-card__name">Slide</span>
+              <span class="motion-card__hint">Click for code</span>
+            </div>
+            <div class="motion-card__code" aria-hidden="true">
+              <code>@keyframes slideIn {
+  0% { transform: translateX(-30px); opacity: 0.5; }
+  100% { transform: translateX(30px); opacity: 1; }
+}
+
+.element {
+  animation: slideIn 0.6s ease infinite alternate;
+}</code>
+            </div>
+          </div>
+
+          <!-- Pulse -->
+          <div class="motion-card" tabindex="0" role="button" aria-label="Pulse animation — click to view code" data-anim="pulse">
+            <div class="motion-card__stage">
+              <div class="motion-card__demo anim-pulse">P</div>
+            </div>
+            <div class="motion-card__info">
+              <span class="motion-card__name">Pulse</span>
+              <span class="motion-card__hint">Click for code</span>
+            </div>
+            <div class="motion-card__code" aria-hidden="true">
+              <code>@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.element {
+  animation: pulse 0.8s ease infinite;
+}</code>
+            </div>
+          </div>
+
+          <!-- Shake -->
+          <div class="motion-card" tabindex="0" role="button" aria-label="Shake animation — click to view code" data-anim="shake">
+            <div class="motion-card__stage">
+              <div class="motion-card__demo anim-shake">S</div>
+            </div>
+            <div class="motion-card__info">
+              <span class="motion-card__name">Shake</span>
+              <span class="motion-card__hint">Click for code</span>
+            </div>
+            <div class="motion-card__code" aria-hidden="true">
+              <code>@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.element {
+  animation: shake 0.5s ease infinite;
+}</code>
+            </div>
+          </div>
+
+          <!-- Flip -->
+          <div class="motion-card" tabindex="0" role="button" aria-label="Flip animation — click to view code" data-anim="flip">
+            <div class="motion-card__stage">
+              <div class="motion-card__demo anim-flip">F</div>
+            </div>
+            <div class="motion-card__info">
+              <span class="motion-card__name">Flip</span>
+              <span class="motion-card__hint">Click for code</span>
+            </div>
+            <div class="motion-card__code" aria-hidden="true">
+              <code>@keyframes flipIn {
+  0% { transform: perspective(400px) rotateY(0deg); }
+  100% { transform: perspective(400px) rotateY(180deg); }
+}
+
+.element {
+  animation: flipIn 0.8s ease infinite alternate;
+}</code>
+            </div>
+          </div>
+
+          <!-- Scale -->
+          <div class="motion-card" tabindex="0" role="button" aria-label="Scale animation — click to view code" data-anim="scale">
+            <div class="motion-card__stage">
+              <div class="motion-card__demo anim-scale">S</div>
+            </div>
+            <div class="motion-card__info">
+              <span class="motion-card__name">Scale</span>
+              <span class="motion-card__hint">Click for code</span>
+            </div>
+            <div class="motion-card__code" aria-hidden="true">
+              <code>@keyframes scaleUp {
+  0% { transform: scale(0.8); }
+  100% { transform: scale(1.2); }
+}
+
+.element {
+  animation: scaleUp 0.5s ease infinite alternate;
+}</code>
+            </div>
+          </div>
+
+          <!-- Rotate -->
+          <div class="motion-card" tabindex="0" role="button" aria-label="Rotate animation — click to view code" data-anim="rotate">
+            <div class="motion-card__stage">
+              <div class="motion-card__demo anim-rotate">R</div>
+            </div>
+            <div class="motion-card__info">
+              <span class="motion-card__name">Rotate</span>
+              <span class="motion-card__hint">Click for code</span>
+            </div>
+            <div class="motion-card__code" aria-hidden="true">
+              <code>@keyframes rotate360 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.element {
+  animation: rotate360 1s linear infinite;
+}</code>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var cards = document.querySelectorAll('.motion-card');
+
+      cards.forEach(function (card) {
+        function toggleCode() {
+          var codeBlock = card.querySelector('.motion-card__code');
+          var isOpen = codeBlock.classList.contains('open');
+          codeBlock.classList.toggle('open');
+          codeBlock.setAttribute('aria-hidden', isOpen);
+        }
+
+        card.addEventListener('click', toggleCode);
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleCode();
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script src="/src/js/main.js" defer></script>
+</body>
+</html>

@@ -27,7 +27,7 @@ npm run dev
 npx serve . -l 3000
 ```
 
-Then open `http://localhost:3000/pages/` in your browser.
+Then open `http://localhost:3000/` in your browser.
 
 ---
 
@@ -72,30 +72,29 @@ code-and-composite/
 │       ├── blog-posts.json      # Post list: slug, title, date, tags
 │       ├── stack.json           # My Stack page: tools + one-liners
 │       └── bookmarks.json       # Curated resource links
-├── pages/                       # HTML pages
-│   ├── index.html               # Homepage: hero, featured work, about, AI teaser
-│   ├── work/                    # Work section
-│   │   ├── index.html           # Project grid with skill tag filter
-│   │   ├── token-editor/        # Live Design Token Editor
-│   │   ├── contrast-checker/    # WCAG Contrast Checker
-│   │   ├── prompt-enhancer/     # AI Prompt Enhancer
-│   │   ├── icon-system/         # SVG Icon System
-│   │   ├── figma-to-code/       # Figma-to-Code Showcase
-│   │   ├── motion-playground/   # CSS Animation demos
-│   │   └── component-library/   # Mini component library
-│   ├── design/
-│   │   ├── index.html           # Design archive (masonry gallery)
-│   │   ├── it/                  # /it deep-link — filtered for IT hiring managers
-│   │   └── design-role/         # /design deep-link — filtered for creative directors
-│   ├── ai-lab/
-│   │   └── index.html           # Synthetic Studio with before/after slider
-│   ├── blog/
-│   │   ├── index.html           # Post list + TIL feed
-│   │   └── how-i-built-the-token-editor/
-│   ├── toolbox/
-│   │   └── index.html           # Hub: live tools + My Stack + Bookmarks
-│   └── resume/
-│       └── index.html           # Resume + contact form (Formspree)
+├── index.html                   # Homepage: hero, featured work, about, AI teaser
+├── work/                        # Work section
+│   ├── index.html               # Project grid with skill tag filter
+│   ├── token-editor/            # Live Design Token Editor
+│   ├── contrast-checker/        # WCAG Contrast Checker
+│   ├── prompt-enhancer/         # AI Prompt Enhancer
+│   ├── icon-system/             # SVG Icon System
+│   ├── figma-to-code/           # Figma-to-Code Showcase
+│   ├── motion-playground/       # CSS Animation demos
+│   └── component-library/       # Mini component library
+├── design/
+│   ├── index.html               # Design archive (masonry gallery)
+│   ├── it/                      # /it deep-link — filtered for IT hiring managers
+│   └── design-role/             # /design deep-link — filtered for creative directors
+├── ai-lab/
+│   └── index.html               # Synthetic Studio with before/after slider
+├── blog/
+│   ├── index.html               # Post list + TIL feed
+│   └── how-i-built-the-token-editor/
+├── toolbox/
+│   └── index.html               # Hub: live tools + My Stack + Bookmarks
+├── resume/
+│   └── index.html               # Resume + contact form (Formspree)
 ├── components/                  # Reusable HTML partials (injected by JS)
 │   ├── nav.html                 # Fixed navigation bar
 │   ├── footer.html              # 3-column footer with links
@@ -121,7 +120,7 @@ code-and-composite/
   "slug": "my-new-project",
   "tags": ["JavaScript", "CSS"],
   "description": "A brief description of what this project demonstrates.",
-  "url": "/pages/work/my-new-project/",
+  "url": "/work/my-new-project/",
   "og_image": "/public/images/og/og-my-new-project.jpg",
   "audience": ["it", "design"],
   "featured": false
@@ -147,7 +146,7 @@ The work grid, command palette, and skill filter will pick it up automatically.
   "date": "2026-04-10",
   "tags": ["CSS", "TIL"],
   "description": "A short summary of the post.",
-  "url": "/pages/blog/my-new-post/",
+  "url": "/blog/my-new-post/",
   "reading_time": "3 min read"
 }
 ```

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How I rebuilt a Figma component as accessible HTML — a case study on translating design tokens into semantic, accessible markup with CSS custom properties.">
+  <meta name="author" content="Code &amp; Composite">
+  <meta name="theme-color" content="#534AB7">
+
+  <!-- Security -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://formspree.io; frame-ancestors 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How I rebuilt a Figma component as accessible HTML — Code &amp; Composite">
+  <meta property="og:description" content="A case study on translating a Figma design system component into semantic, accessible HTML with CSS custom properties.">
+  <meta property="og:image" content="/public/images/og/og-token-editor.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://codeandcomposite.com/blog/how-i-built-the-token-editor/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How I rebuilt a Figma component as accessible HTML">
+  <meta name="twitter:description" content="A case study on translating design tokens into semantic, accessible markup.">
+  <meta name="twitter:image" content="/public/images/og/og-token-editor.jpg">
+
+  <title>How I rebuilt a Figma component as accessible HTML — Code &amp; Composite</title>
+  <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="/public/site.webmanifest">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://codeandcomposite.com/blog/how-i-built-the-token-editor/">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Critical CSS inlined -->
+  <style>
+    :root{--color-bg:#ffffff;--color-bg-secondary:#f7f6f3;--color-accent:#534ab7;--color-text-primary:#1a1a18;--color-text-secondary:#6b6a65;--color-text-tertiary:#9c9a92;--color-border:rgba(0,0,0,0.1);--color-border-tertiary:rgba(0,0,0,0.04);--nav-height:56px;--color-text-inverse:#ffffff;--color-accent-hover:#4439a0;--fs-xs:clamp(0.7rem,0.65rem + 0.25vw,0.8rem);--fs-sm:clamp(0.8rem,0.75rem + 0.25vw,0.9rem);--fs-base:clamp(0.9rem,0.85rem + 0.25vw,1rem);--fs-md:clamp(1rem,0.9rem + 0.5vw,1.25rem);--fs-lg:clamp(1.15rem,1rem + 0.75vw,1.5rem);--fs-xl:clamp(1.4rem,1.1rem + 1.5vw,2rem);--fs-2xl:clamp(1.75rem,1.3rem + 2.25vw,2.75rem);--fs-hero:clamp(2.5rem,1.5rem + 5vw,4.5rem);--font-sans:'Inter',system-ui,sans-serif;--font-mono:'JetBrains Mono',monospace;--lh-tight:1.1;--lh-snug:1.25;--lh-relaxed:1.75;--fw-medium:500;--fw-semibold:600;--radius-sm:6px;--radius-md:10px;--radius-lg:16px;--radius-full:9999px;--space-2xs:4px;--space-xs:8px;--space-sm:12px;--space-md:16px;--space-lg:24px;--space-xl:32px;--space-2xl:48px;--space-3xl:64px;--space-4xl:96px;--transition:150ms ease;--shadow-md:0 4px 12px rgba(0,0,0,0.08);--shadow-sm:0 1px 3px rgba(0,0,0,0.06);--grain-opacity:0.03;--max-width:1200px;--content-max:72ch}
+    body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:var(--grain-opacity);background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px 256px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-sans);font-size:var(--fs-base);line-height:1.5;color:var(--color-text-primary);background:var(--color-bg);-webkit-font-smoothing:antialiased}
+    .skip-link{position:absolute;top:-100%;left:var(--space-md);z-index:10000;background:var(--color-accent);color:var(--color-text-inverse);padding:var(--space-xs) var(--space-md);border-radius:var(--radius-sm);font-size:var(--fs-sm);font-weight:var(--fw-medium)}.skip-link:focus{top:var(--space-md)}
+    .site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-height);display:flex;align-items:center;justify-content:space-between;padding:0 var(--space-lg);background:color-mix(in srgb, var(--color-bg) 85%, transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:0.5px solid var(--color-border-tertiary)}
+    .site-nav__logo{display:flex;align-items:center;gap:var(--space-xs);font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--color-text-primary);text-decoration:none}.site-nav__logo:hover{color:var(--color-accent)}
+    .site-nav__logo-icon{font-size:var(--fs-md);color:var(--color-accent)}
+    .site-nav__amp{color:var(--color-accent);font-style:italic}
+    .site-nav__links{display:flex;align-items:center;gap:var(--space-xs)}
+    .site-nav__link{font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--color-text-secondary);text-decoration:none;padding:var(--space-2xs) var(--space-xs);border-radius:var(--radius-sm);transition:color var(--transition),background var(--transition)}.site-nav__link:hover{color:var(--color-text-primary);background:var(--color-bg-secondary)}
+    .site-nav__theme{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:var(--radius-sm);color:var(--color-text-secondary);margin-left:var(--space-xs);cursor:pointer;background:none;border:none}.site-nav__theme:hover{color:var(--color-text-primary);background:var(--color-bg-secondary)}
+    .icon--sun{display:none}.icon--moon{display:block}html.dark .icon--sun{display:block}html.dark .icon--moon{display:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 var(--space-lg)}
+    .page-main{padding-top:calc(var(--nav-height) + var(--space-2xl));padding-bottom:var(--space-3xl)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-xs);font-family:var(--font-sans);font-size:var(--fs-sm);font-weight:var(--fw-medium);padding:10px 20px;border-radius:var(--radius-md);border:0.5px solid var(--color-border);cursor:pointer;text-decoration:none;transition:all var(--transition);line-height:1;white-space:nowrap}.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm)}.btn:active{transform:translateY(0)}
+    .btn--primary{background:var(--color-accent);color:var(--color-text-inverse);border-color:var(--color-accent)}.btn--primary:hover{background:var(--color-accent-hover);border-color:var(--color-accent-hover)}
+    .btn--secondary{background:var(--color-bg);color:var(--color-text-primary);border-color:var(--color-border)}.btn--secondary:hover{background:var(--color-bg-secondary)}
+    .fade-in{opacity:0;transform:translateY(16px);transition:opacity 300ms ease,transform 300ms ease}.fade-in.visible{opacity:1;transform:translateY(0)}
+
+    /* Article layout */
+    .article{max-width:var(--content-max);margin:0 auto}
+    .article__header{margin-bottom:var(--space-2xl)}.article__eyebrow{font-size:var(--fs-xs);color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--space-xs)}
+    .article__title{font-size:var(--fs-2xl);letter-spacing:-0.03em;line-height:var(--lh-tight);margin-bottom:var(--space-sm)}
+    .article__meta{display:flex;align-items:center;gap:var(--space-sm);flex-wrap:wrap}.article__date{font-size:var(--fs-xs);color:var(--color-text-tertiary);font-variant-numeric:tabular-nums}
+    .article__reading-time{font-size:var(--fs-xs);color:var(--color-text-tertiary)}
+    .article__tags{display:flex;flex-wrap:wrap;gap:var(--space-2xs);margin-top:var(--space-sm)}
+    .pill{display:inline-block;font-size:var(--fs-xs);font-weight:var(--fw-medium);padding:2px 10px;border-radius:var(--radius-full);background:var(--color-bg-secondary);color:var(--color-text-tertiary)}
+
+    .article__content p{margin-bottom:var(--space-lg);line-height:var(--lh-relaxed);color:var(--color-text-secondary)}
+    .article__content h2{font-size:var(--fs-lg);font-weight:var(--fw-semibold);color:var(--color-text-primary);margin:var(--space-2xl) 0 var(--space-md);letter-spacing:-0.02em}
+    .article__content h3{font-size:var(--fs-md);font-weight:var(--fw-semibold);color:var(--color-text-primary);margin:var(--space-xl) 0 var(--space-sm)}
+    .article__content code{font-family:var(--font-mono);font-size:var(--fs-sm);background:var(--color-bg-secondary);padding:2px 6px;border-radius:var(--radius-sm);color:var(--color-accent)}
+    .article__content pre{background:var(--color-bg-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--radius-md);padding:var(--space-md) var(--space-lg);margin:var(--space-lg) 0;overflow-x:auto}
+    .article__content pre code{background:none;padding:0;color:var(--color-text-primary)}
+    .article__content ul{margin-bottom:var(--space-lg);padding-left:var(--space-lg);color:var(--color-text-secondary)}
+    .article__content li{margin-bottom:var(--space-xs);line-height:var(--lh-relaxed)}
+
+    .article__nav{display:flex;justify-content:space-between;gap:var(--space-lg);margin-top:var(--space-3xl);padding-top:var(--space-xl);border-top:1px solid var(--color-border-tertiary)}
+    .article__nav-link{display:flex;flex-direction:column;gap:var(--space-2xs);text-decoration:none;color:inherit;padding:var(--space-md);border-radius:var(--radius-md);border:0.5px solid var(--color-border-tertiary);transition:border-color var(--transition),background var(--transition);max-width:48%}
+    .article__nav-link:hover{border-color:var(--color-border);background:var(--color-bg-secondary)}
+    .article__nav-label{font-size:var(--fs-xs);color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.06em}
+    .article__nav-title{font-size:var(--fs-sm);font-weight:var(--fw-medium);color:var(--color-text-primary);line-height:var(--lh-snug)}
+    .article__nav-link--prev{align-items:flex-start}.article__nav-link--next{align-items:flex-end;margin-left:auto;text-align:right}
+
+    .back-link{display:inline-flex;align-items:center;gap:var(--space-xs);font-size:var(--fs-sm);color:var(--color-text-secondary);text-decoration:none;margin-bottom:var(--space-xl);transition:color var(--transition)}.back-link:hover{color:var(--color-accent)}
+
+    @media(max-width:768px){.site-nav__links{display:none}.site-nav__links.open{display:flex;position:fixed;top:var(--nav-height);left:0;right:0;bottom:0;background:var(--color-bg);flex-direction:column;align-items:center;justify-content:center;gap:var(--space-md);z-index:999}.site-nav__link{font-size:var(--fs-lg)}.article__nav{flex-direction:column}.article__nav-link{max-width:100%}}
+    @media(prefers-color-scheme:dark){:root{--color-bg:#111110;--color-bg-secondary:#1a1a18;--color-text-primary:#e8e6de;--color-text-secondary:#a3a198;--color-text-tertiary:#6b6a63;--color-border:rgba(255,255,255,0.1);--color-border-tertiary:rgba(255,255,255,0.04);--color-accent:#7f77dd;--color-accent-hover:#948de8;--color-text-inverse:#1a1a18}}
+  </style>
+
+  <!-- Non-critical CSS loaded async -->
+  <link rel="stylesheet" href="/src/css/tokens.css">
+  <link rel="stylesheet" href="/src/css/global.css">
+  <link rel="stylesheet" href="/src/css/layout.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <link rel="stylesheet" href="/src/css/dark-mode.css">
+  <link rel="stylesheet" href="/src/css/animations.css" media="print" onload="this.media='all'">
+  <link rel="noscript" href="/src/css/animations.css">
+</head>
+<body>
+  <!-- Skip link -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Nav (injected by JS) -->
+  <div id="nav-container"></div>
+
+  <!-- Main content -->
+  <main id="main-content" class="page-main">
+    <div class="container">
+      <article class="article fade-in" aria-label="Blog post">
+        <a href="/blog/" class="back-link" aria-label="Back to Process Blog">&larr; Back to blog</a>
+
+        <header class="article__header">
+          <p class="article__eyebrow">Case Study</p>
+          <h1 class="article__title">How I rebuilt a Figma component as accessible HTML</h1>
+          <div class="article__meta">
+            <time class="article__date" datetime="2026-03-15">15 March 2026</time>
+            <span class="article__reading-time">4 min read</span>
+          </div>
+          <div class="article__tags" aria-label="Tags">
+            <span class="pill">CSS</span>
+            <span class="pill">Accessibility</span>
+            <span class="pill">Design Tokens</span>
+            <span class="pill">Figma</span>
+          </div>
+        </header>
+
+        <div class="article__content">
+          <p>Every design system starts with a component library in Figma. But Figma components don't render in the browser. At some point, someone has to translate those carefully crafted auto-layout frames, corner radii, and colour variables into actual HTML and CSS. That's what I did with the Token Editor — and here's how the translation worked.</p>
+
+          <h2>The Figma source</h2>
+
+          <p>The original Token Editor component in Figma was a modal panel with a structured list of design tokens. It used auto-layout for spacing, component properties for variant states (expanded/collapsed, valid/error), and a set of colour styles mapped to semantic names like <code>token/value/error</code> and <code>token/background/readonly</code>.</p>
+
+          <p>The design specified:</p>
+
+          <ul>
+            <li>A modal overlay with <code>backdrop-filter: blur(8px)</code></li>
+            <li>Token rows with left-aligned labels and right-aligned value inputs</li>
+            <li>Error states with a red left border and an icon + message below the input</li>
+            <li>Collapsible groups with chevron rotation on expand</li>
+            <li>Keyboard-navigable focus rings matching the Figma spec (2px offset, 2px stroke)</li>
+          </ul>
+
+          <h2>Translating tokens to CSS custom properties</h2>
+
+          <p>The first step was mapping Figma colour styles to CSS custom properties. Figma's colour styles don't export as variables — they're just hex values attached to layers. So I built a naming convention that mirrored Figma's structure:</p>
+
+          <pre><code>:root {
+  --color-token-bg: #f7f6f3;
+  --color-token-border: rgba(0, 0, 0, 0.1);
+  --color-token-error: #c1292e;
+  --color-token-focus: #534ab7;
+  --color-token-value: #1a1a18;
+  --color-token-label: #6b6a65;
+}</code></pre>
+
+          <p>Each CSS variable maps directly to a Figma colour style. The naming convention follows the pattern <code>--color-{domain}-{element}-{state}</code>, which mirrors how Figma organises its style library. This means when a designer updates a colour in Figma, the developer knows exactly which CSS variable to change — no guessing.</p>
+
+          <h2>Building the accessible structure</h2>
+
+          <p>The modal itself became a <code>&lt;dialog&gt;</code> element, which gives us free escape-key handling, focus trapping, and proper ARIA semantics. Each token group became a <code>&lt;details&gt;</code> element — native disclosure widget, zero JavaScript needed for the expand/collapse behaviour.</p>
+
+          <p>The trickiest part was the error states. Each input needed an <code>aria-describedby</code> pointing to its error message, and the error message needed to appear and disappear without causing layout shift. I solved that with a reserved min-height and CSS transitions on opacity:</p>
+
+          <pre><code>.token-input__error {
+  min-height: 1.5em;
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.token-input__error[aria-hidden="false"] {
+  opacity: 1;
+}</code></pre>
+
+          <h2>What I learned</h2>
+
+          <p>The biggest takeaway: Figma's auto-layout is conceptually close to CSS flexbox, but the details matter. Figma's "padding" on a frame is actually padding on a flex container — but Figma doesn't distinguish between gap and padding the way CSS does. You have to inspect the spacing between items to figure out what should be <code>gap</code> and what should be <code>padding</code>.</p>
+
+          <p>The second lesson: design tokens in Figma are only as useful as the naming convention. If your Figma styles are called "Blue / 500" and "Gray / 100", the developer has no idea what they mean semantically. If they're called "Border / Default" and "Background / Secondary", the translation to CSS is nearly automatic.</p>
+
+          <p>The Token Editor is now live in the Work section. The full source is a single HTML file with inline CSS and vanilla JS — no build step, no framework, just the platform.</p>
+        </div>
+
+        <nav class="article__nav" aria-label="Blog post navigation">
+          <a href="/blog/my-midjourney-prompt-system/" class="article__nav-link article__nav-link--prev" aria-label="Previous post: My Midjourney prompt system">
+            <span class="article__nav-label">&larr; Previous</span>
+            <span class="article__nav-title">My Midjourney prompt system — from v1 ugly to v5 polished</span>
+          </a>
+          <a href="/blog/when-to-use-svg-vs-canvas/" class="article__nav-link article__nav-link--next" aria-label="Next post: When to use SVG vs Canvas">
+            <span class="article__nav-label">Next &rarr;</span>
+            <span class="article__nav-title">When to use SVG vs Canvas — a practical decision tree</span>
+          </a>
+        </nav>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer (injected by JS) -->
+  <div id="footer-container"></div>
+
+  <!-- JavaScript -->
+  <script src="/src/js/main.js" defer></script>
+</body>
+</html>
