@@ -1,0 +1,206 @@
+/* ============================================
+   DARK MODE — prefers-color-scheme overrides
+   Applied via html.dark class (localStorage)
+   or @media (prefers-color-scheme: dark)
+   ============================================ */
+
+/* ---- System preference (first visit) ---- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #111110;
+    --color-bg-secondary: #1a1a18;
+    --color-bg-tertiary: #222220;
+    --color-bg-elevated: #1e1e1c;
+
+    --color-text-primary: #e8e6de;
+    --color-text-secondary: #a3a198;
+    --color-text-tertiary: #6b6a63;
+    --color-text-inverse: #1a1a18;
+
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-border-secondary: rgba(255, 255, 255, 0.06);
+    --color-border-tertiary: rgba(255, 255, 255, 0.04);
+
+    --color-accent: #7f77dd;
+    --color-accent-hover: #948de8;
+    --color-accent-secondary: #2bc495;
+    --color-accent-coral: #e87a56;
+    --color-accent-amber: #d48f2a;
+    --color-accent-blue: #5da5e8;
+    --color-accent-pink: #e07099;
+
+    --color-bg-success: #04342c;
+    --color-text-success: #9fe1cb;
+    --color-bg-warning: #412402;
+    --color-text-warning: #fac775;
+    --color-bg-danger: #4a1b0c;
+    --color-text-danger: #f5c4b3;
+    --color-bg-info: #042c53;
+    --color-text-info: #b5d4f4;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-focus: 0 0 0 2px var(--color-accent);
+  }
+
+  /* Grain slightly less visible in dark mode */
+  body::before {
+    --grain-opacity: 0.015;
+  }
+
+  code {
+    background: var(--color-bg-tertiary);
+  }
+
+  pre {
+    background: var(--color-bg-tertiary);
+    border-color: var(--color-border-secondary);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-tertiary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+}
+
+/* ---- Manual toggle override (html.dark) ---- */
+html.dark {
+  --color-bg: #111110;
+  --color-bg-secondary: #1a1a18;
+  --color-bg-tertiary: #222220;
+  --color-bg-elevated: #1e1e1c;
+
+  --color-text-primary: #e8e6de;
+  --color-text-secondary: #a3a198;
+  --color-text-tertiary: #6b6a63;
+  --color-text-inverse: #1a1a18;
+
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-secondary: rgba(255, 255, 255, 0.06);
+  --color-border-tertiary: rgba(255, 255, 255, 0.04);
+
+  --color-accent: #7f77dd;
+  --color-accent-hover: #948de8;
+  --color-accent-secondary: #2bc495;
+  --color-accent-coral: #e87a56;
+  --color-accent-amber: #d48f2a;
+  --color-accent-blue: #5da5e8;
+  --color-accent-pink: #e07099;
+
+  --color-bg-success: #04342c;
+  --color-text-success: #9fe1cb;
+  --color-bg-warning: #412402;
+  --color-text-warning: #fac775;
+  --color-bg-danger: #4a1b0c;
+  --color-text-danger: #f5c4b3;
+  --color-bg-info: #042c53;
+  --color-text-info: #b5d4f4;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-focus: 0 0 0 2px var(--color-accent);
+}
+
+html.dark body::before {
+  --grain-opacity: 0.015;
+}
+
+html.dark code {
+  background: var(--color-bg-tertiary);
+}
+
+html.dark pre {
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-border-secondary);
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: var(--color-bg-tertiary);
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+}
+
+html.dark ::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* ---- Respect user's system preference even when manually toggled ---- */
+/* If user has system dark mode but toggled to light, override */
+@media (prefers-color-scheme: dark) {
+  html.light {
+    --color-bg: #ffffff;
+    --color-bg-secondary: #f7f6f3;
+    --color-bg-tertiary: #f0efe9;
+    --color-bg-elevated: #ffffff;
+
+    --color-text-primary: #1a1a18;
+    --color-text-secondary: #6b6a65;
+    --color-text-tertiary: #9c9a92;
+    --color-text-inverse: #ffffff;
+
+    --color-border: rgba(0, 0, 0, 0.1);
+    --color-border-secondary: rgba(0, 0, 0, 0.06);
+    --color-border-tertiary: rgba(0, 0, 0, 0.04);
+
+    --color-accent: #534ab7;
+    --color-accent-hover: #4439a0;
+    --color-accent-secondary: #1d9e75;
+    --color-accent-coral: #d85a30;
+    --color-accent-amber: #ba7517;
+    --color-accent-blue: #378add;
+    --color-accent-pink: #d4537e;
+
+    --color-bg-success: #e1f5ee;
+    --color-text-success: #085041;
+    --color-bg-warning: #faeeda;
+    --color-text-warning: #633806;
+    --color-bg-danger: #faece7;
+    --color-text-danger: #712b13;
+    --color-bg-info: #e6f1fb;
+    --color-text-info: #0c447c;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+    --shadow-focus: 0 0 0 2px var(--color-accent);
+  }
+
+  html.light body::before {
+    --grain-opacity: 0.03;
+  }
+
+  html.light code {
+    background: var(--color-bg-tertiary);
+  }
+
+  html.light pre {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border);
+  }
+
+  html.light ::-webkit-scrollbar-track {
+    background: var(--color-bg-secondary);
+  }
+
+  html.light ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+  }
+
+  html.light ::selection {
+    background: var(--color-accent);
+    color: var(--color-text-inverse);
+  }
+}

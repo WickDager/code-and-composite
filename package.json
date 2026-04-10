@@ -1,0 +1,25 @@
+{
+  "name": "code-and-composite",
+  "version": "1.0.0",
+  "description": "Front-end developer and graphic designer portfolio — pure HTML, CSS, vanilla JS.",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve . -l 3000",
+    "build": "echo 'No build step — this is a static site.'",
+    "generate-rss": "node scripts/generate-rss.js",
+    "generate-og": "node scripts/generate-og-images.js"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  },
+  "keywords": [
+    "portfolio",
+    "front-end",
+    "graphic-design",
+    "html",
+    "css",
+    "javascript",
+    "static-site"
+  ],
+  "license": "MIT"
+}

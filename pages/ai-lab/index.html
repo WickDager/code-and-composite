@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Synthetic Studio — exploring human direction and machine generation. AI art with iterative prompt evolution.">
+  <meta name="theme-color" content="#534AB7">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://formspree.io; frame-ancestors 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta property="og:title" content="AI Lab — Code &amp; Composite">
+  <meta property="og:description" content="Synthetic Studio — AI art with human direction, not just generation.">
+  <meta property="og:image" content="/public/images/og/og-ai-lab.jpg">
+  <meta property="og:type" content="website">
+  <title>AI Lab — Code &amp; Composite</title>
+  <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/css/tokens.css">
+  <link rel="stylesheet" href="/src/css/global.css">
+  <link rel="stylesheet" href="/src/css/layout.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <link rel="stylesheet" href="/src/css/animations.css">
+  <link rel="stylesheet" href="/src/css/dark-mode.css">
+  <script src="/src/js/main.js" defer></script>
+  <style>
+    .ai-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); }
+    .ai-card { background: var(--color-bg); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--radius-lg); overflow: hidden; transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition); }
+    .ai-card:hover { border-color: var(--color-border); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .ai-card__img { width: 100%; aspect-ratio: 16/10; object-fit: cover; cursor: pointer; display: block; }
+    .ai-card__body { padding: var(--space-md) var(--space-lg) var(--space-lg); }
+    .ai-card__title { font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--color-text-primary); margin-bottom: var(--space-2xs); }
+    .ai-card__tool { font-size: var(--fs-xs); color: var(--color-text-tertiary); margin-bottom: var(--space-xs); }
+    .ai-card__prompt { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--color-text-secondary); background: var(--color-bg-secondary); padding: var(--space-sm); border-radius: var(--radius-sm); display: none; line-height: 1.6; word-break: break-word; }
+    .ai-card__prompt.open { display: block; }
+    .ai-card__toggle { font-size: var(--fs-xs); color: var(--color-accent); cursor: pointer; background: none; border: none; padding: var(--space-2xs) 0; font-weight: var(--fw-medium); }
+    .ai-card__toggle:hover { text-decoration: underline; }
+
+    /* Before/after slider */
+    .ba-slider { position: relative; width: 100%; aspect-ratio: 16/10; overflow: hidden; cursor: col-resize; user-select: none; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+    .ba-slider__img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+    .ba-slider__overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; }
+    .ba-slider__overlay img { width: 100%; height: 100%; object-fit: cover; }
+    .ba-slider__handle { position: absolute; top: 0; bottom: 0; width: 3px; background: #fff; cursor: col-resize; z-index: 10; box-shadow: 0 0 4px rgba(0,0,0,0.3); }
+    .ba-slider__handle::after { content: '⟨ ⟩'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 36px; height: 36px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333; font-size: 14px; font-weight: 700; box-shadow: var(--shadow-md); letter-spacing: 4px; padding-left: 4px; }
+    .ba-label { position: absolute; top: var(--space-xs); padding: 2px 10px; font-size: 10px; font-weight: var(--fw-medium); background: rgba(0,0,0,0.6); color: #fff; border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: 0.06em; z-index: 5; }
+    .ba-label--before { left: var(--space-xs); }
+    .ba-label--after { right: var(--space-xs); }
+
+    /* Version history */
+    .version-strip { display: flex; gap: var(--space-xs); overflow-x: auto; padding: var(--space-xs) 0 var(--space-sm); }
+    .version-strip__item { flex: 0 0 80px; text-align: center; cursor: pointer; opacity: 0.5; transition: opacity var(--transition); border-radius: var(--radius-sm); padding: 4px; }
+    .version-strip__item:hover, .version-strip__item.active { opacity: 1; }
+    .version-strip__item span { display: block; font-size: 9px; color: var(--color-text-tertiary); margin-top: 2px; }
+
+    @media (max-width: 768px) { .ai-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="nav-container"></div>
+  <main id="main-content" class="page-main">
+    <div class="container">
+      <section class="fade-in" aria-label="AI Lab — Synthetic Studio">
+        <header class="section-header">
+          <p class="section-header__eyebrow">Synthetic Studio</p>
+          <h2 class="section-header__title">AI Lab</h2>
+          <p class="section-header__desc">Exploring the boundary between human direction and machine generation. Every piece shows iteration, not just generation.</p>
+        </header>
+
+        <div class="ai-grid" id="ai-grid"></div>
+      </section>
+    </div>
+  </main>
+  <div id="footer-container"></div>
+  <script>
+    // Minimal before/after slider — no library needed
+    function initBASlider(container) {
+      var handle = container.querySelector('.ba-slider__handle');
+      var overlay = container.querySelector('.ba-slider__overlay');
+      if (!handle || !overlay) return;
+      var isDragging = false;
+
+      function setPosition(x) {
+        var rect = container.getBoundingClientRect();
+        var pos = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+        handle.style.left = (pos * 100) + '%';
+        overlay.style.clipPath = 'inset(0 0 0 ' + (pos * 100) + '%)';
+      }
+
+      handle.addEventListener('mousedown', function () { isDragging = true; });
+      handle.addEventListener('touchstart', function () { isDragging = true; }, { passive: true });
+      window.addEventListener('mouseup', function () { isDragging = false; });
+      window.addEventListener('touchend', function () { isDragging = false; });
+      container.addEventListener('mousemove', function (e) { if (isDragging) setPosition(e.clientX); });
+      container.addEventListener('touchmove', function (e) { if (isDragging) setPosition(e.touches[0].clientX); }, { passive: true });
+      container.addEventListener('click', function (e) { setPosition(e.clientX); });
+
+      // Set initial position
+      setPosition(container.getBoundingClientRect().left + container.getBoundingClientRect().width / 2);
+    }
+
+    async function loadAiLab() {
+      var grid = document.getElementById('ai-grid');
+      if (!grid) return;
+      try {
+        var res = await fetch('/src/data/ai-lab.json');
+        var items = await res.json();
+
+        grid.innerHTML = items.map(function (item, idx) {
+          var isBA = item.category === 'ai-human-polish';
+
+          var cardHtml = '<div class="ai-card">';
+
+          if (isBA) {
+            cardHtml += '<div class="ba-slider" id="ba-' + idx + '">';
+            cardHtml += '<span class="ba-label ba-label--before">Raw AI</span>';
+            cardHtml += '<span class="ba-label ba-label--after">Human polish</span>';
+            cardHtml += '<img class="ba-slider__img" src="' + escapeHtml(item.src) + '" alt="' + escapeHtml(item.alt) + '" loading="lazy">';
+            cardHtml += '<div class="ba-slider__overlay"><img src="' + escapeHtml(item.src) + '" alt="" loading="lazy"></div>';
+            cardHtml += '<div class="ba-slider__handle"></div>';
+            cardHtml += '</div>';
+          } else {
+            cardHtml += '<img class="ai-card__img" src="' + escapeHtml(item.src) + '" alt="' + escapeHtml(item.alt) + '" loading="lazy">';
+          }
+
+          cardHtml += '<div class="ai-card__body">';
+          cardHtml += '<h3 class="ai-card__title">' + escapeHtml(item.title) + '</h3>';
+          cardHtml += '<p class="ai-card__tool">' + escapeHtml(item.tool) + '</p>';
+          cardHtml += '<button class="ai-card__toggle" data-idx="' + idx + '" type="button" aria-expanded="false">View prompt →</button>';
+          cardHtml += '<div class="ai-card__prompt" id="prompt-' + idx + '"><code>' + escapeHtml(item.prompt) + '</code></div>';
+
+          // Version history for prompt evolution items
+          if (item.versions && item.versions.length) {
+            cardHtml += '<div class="version-strip">';
+            item.versions.forEach(function (v) {
+              cardHtml += '<div class="version-strip__item" data-vid="' + v.version + '"><strong>v' + v.version + '</strong><span>' + escapeHtml(v.note) + '</span></div>';
+            });
+            cardHtml += '</div>';
+          }
+
+          cardHtml += '</div></div>';
+          return cardHtml;
+        }).join('');
+
+        // Init before/after sliders
+        document.querySelectorAll('.ba-slider').forEach(function (el) { initBASlider(el); });
+
+        // Prompt toggle
+        grid.addEventListener('click', function (e) {
+          var toggle = e.target.closest('.ai-card__toggle');
+          if (!toggle) return;
+          var idx = toggle.getAttribute('data-idx');
+          var prompt = document.getElementById('prompt-' + idx);
+          if (!prompt) return;
+          var isOpen = prompt.classList.toggle('open');
+          toggle.textContent = isOpen ? 'Hide prompt ←' : 'View prompt →';
+          toggle.setAttribute('aria-expanded', isOpen);
+        });
+      } catch (err) {
+        console.warn('Failed to load AI Lab:', err);
+      }
+    }
+
+    function escapeHtml(str) {
+      if (typeof str !== 'string') return str;
+      var div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadAiLab);
+    } else {
+      loadAiLab();
+    }
+  </script>
+</body>
+</html>

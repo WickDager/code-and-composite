@@ -1,0 +1,62 @@
+[
+  {
+    "title": "MDN Web Docs",
+    "url": "https://developer.mozilla.org",
+    "category": "Development",
+    "description": "The definitive reference for HTML, CSS, and JavaScript. Bookmarked every day."
+  },
+  {
+    "title": "CSS-Tricks Almanac",
+    "url": "https://css-tricks.com/almanac/",
+    "category": "Development",
+    "description": "Quick reference for every CSS property. Still the fastest way to check syntax."
+  },
+  {
+    "title": "WebAIM Contrast Checker",
+    "url": "https://webaim.org/resources/contrastchecker/",
+    "category": "Accessibility",
+    "description": "The original WCAG contrast checker. My own tool is inspired by this."
+  },
+  {
+    "title": "Refactoring UI",
+    "url": "https://refactoringui.com",
+    "category": "Design",
+    "description": "Tactical design advice for developers. Changed how I think about spacing and hierarchy."
+  },
+  {
+    "title": "The Noun Project",
+    "url": "https://thenounproject.com",
+    "category": "Design",
+    "description": "Icon reference library. When I need to understand how a concept is commonly visualised."
+  },
+  {
+    "title": "Prompt Engineering Guide",
+    "url": "https://www.promptingguide.ai",
+    "category": "AI",
+    "description": "Comprehensive resource on prompt techniques. Helps structure my Midjourney iterations."
+  },
+  {
+    "title": "Can I Use",
+    "url": "https://caniuse.com",
+    "category": "Development",
+    "description": "Browser compatibility tables. Check before using any cutting-edge CSS feature."
+  },
+  {
+    "title": "A List Apart",
+    "url": "https://alistapart.com",
+    "category": "Design",
+    "description": "Long-form articles on web design best practices. The thinking behind the pixels."
+  },
+  {
+    "title": "Open Peeps",
+    "url": "https://www.openpeeps.com",
+    "category": "Design",
+    "description": "Hand-drawn illustration library. Great placeholder avatar system for prototypes."
+  },
+  {
+    "title": "CSS Container Queries — Chrome blog",
+    "url": "https://developer.chrome.com/blog/css-container-queries/",
+    "category": "Development",
+    "description": "Deep dive on container queries. The feature that finally lets components truly be self-contained."
+  }
+]

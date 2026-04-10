@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Live Design Token Editor — adjust colours, spacing, radius, and typography in real time. Export as CSS or JSON.">
+  <meta name="theme-color" content="#534AB7">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://formspree.io; frame-ancestors 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta property="og:title" content="Live Design Token Editor — Code &amp; Composite">
+  <meta property="og:description" content="Sliders update CSS custom properties in real time. Export as tokens.json or a :root block.">
+  <meta property="og:image" content="/public/images/og/og-token-editor.jpg">
+  <meta property="og:type" content="website">
+  <title>Live Design Token Editor — Code &amp; Composite</title>
+  <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/css/tokens.css">
+  <link rel="stylesheet" href="/src/css/global.css">
+  <link rel="stylesheet" href="/src/css/layout.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <link rel="stylesheet" href="/src/css/animations.css">
+  <link rel="stylesheet" href="/src/css/dark-mode.css">
+  <script src="/src/js/main.js" defer></script>
+  <script src="/src/js/projects/token-editor.js" defer></script>
+  <style>
+    .token-editor { display: grid; grid-template-columns: 320px 1fr; gap: var(--space-xl); align-items: start; }
+    .token-editor__controls { background: var(--color-bg); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--radius-lg); padding: var(--space-lg); }
+    .token-editor__preview { background: var(--color-bg); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--radius-lg); padding: var(--space-xl); position: sticky; top: calc(var(--nav-height) + var(--space-lg)); }
+    .slider-group { margin-bottom: var(--space-md); }
+    .slider-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2xs); }
+    .slider-label__name { font-size: var(--fs-xs); font-weight: var(--fw-medium); color: var(--color-text-secondary); }
+    .slider-label__value { font-size: var(--fs-xs); font-family: var(--font-mono); color: var(--color-text-tertiary); }
+    .slider-group input[type="range"] { width: 100%; height: 4px; -webkit-appearance: none; appearance: none; background: var(--color-bg-tertiary); border-radius: var(--radius-full); outline: none; }
+    .slider-group input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--color-accent); cursor: pointer; border: 2px solid var(--color-bg); box-shadow: var(--shadow-sm); }
+    .slider-group input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--color-accent); cursor: pointer; border: 2px solid var(--color-bg); box-shadow: var(--shadow-sm); }
+    .color-row { display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-sm); }
+    .color-row label { font-size: var(--fs-xs); font-weight: var(--fw-medium); color: var(--color-text-secondary); min-width: 60px; }
+    .color-row input[type="color"] { width: 32px; height: 32px; border: none; border-radius: var(--radius-sm); cursor: pointer; padding: 0; background: none; }
+    .color-row input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+    .color-row input[type="color"]::-webkit-color-swatch { border: 1px solid var(--color-border); border-radius: var(--radius-sm); }
+    .section-divider { border-top: 0.5px solid var(--color-border-tertiary); margin: var(--space-lg) 0; padding-top: var(--space-md); }
+    .section-title { font-size: var(--fs-xs); font-weight: var(--fw-medium); color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-sm); }
+
+    /* Preview scoped styles */
+    .preview-scope { --te-hue: 250; --te-sat: 50%; --te-light: 45%; --te-spacing: 16px; --te-radius: 10px; --te-fontsize: 16px; }
+    .preview-scope { background: hsl(var(--te-hue), var(--te-sat), var(--te-light)); border-radius: var(--te-radius); padding: var(--te-spacing); }
+    .preview-card { background: var(--color-bg-elevated, #fff); border-radius: var(--te-radius); padding: var(--te-spacing); margin-bottom: var(--te-spacing); box-shadow: var(--shadow-sm); }
+    .preview-card h3 { font-size: var(--te-fontsize); font-weight: 600; margin-bottom: 8px; color: var(--color-text-primary); }
+    .preview-card p { font-size: calc(var(--te-fontsize) - 2px); color: var(--color-text-secondary); line-height: 1.5; margin-bottom: var(--te-spacing); }
+    .preview-btn { display: inline-flex; padding: calc(var(--te-spacing) * 0.6) calc(var(--te-spacing) * 1.2); background: hsl(var(--te-hue), var(--te-sat), var(--te-light)); color: #fff; border: none; border-radius: calc(var(--te-radius) * 0.6); font-size: calc(var(--te-fontsize) - 2px); font-weight: 500; cursor: pointer; }
+    .preview-badge { display: inline-block; font-size: 11px; padding: 2px 10px; border-radius: 20px; background: hsl(var(--te-hue), calc(var(--te-sat) / 2), 90%); color: hsl(var(--te-hue), var(--te-sat), 35%); font-weight: 500; margin-right: 4px; }
+    .preview-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: var(--te-spacing); }
+
+    .export-actions { display: flex; gap: var(--space-sm); margin-top: var(--space-lg); flex-wrap: wrap; }
+    .toast { position: fixed; bottom: var(--space-lg); right: var(--space-lg); background: var(--color-bg-success); color: var(--color-text-success); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); font-size: var(--fs-xs); font-weight: var(--fw-medium); z-index: 9999; opacity: 0; transform: translateY(10px); transition: opacity var(--transition), transform var(--transition); pointer-events: none; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) { .token-editor { grid-template-columns: 1fr; } .token-editor__preview { position: static; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="nav-container"></div>
+  <main id="main-content" class="page-main">
+    <div class="container">
+      <section class="fade-in" aria-label="Live Design Token Editor">
+        <header class="section-header">
+          <p class="section-header__eyebrow">Project</p>
+          <h2 class="section-header__title">Live Design Token Editor</h2>
+          <p class="section-header__desc">Adjust colours, spacing, radius, and typography in real time. Export as CSS custom properties or JSON tokens.</p>
+        </header>
+
+        <div class="token-editor">
+          <!-- Controls panel -->
+          <div class="token-editor__controls">
+            <h3 class="section-title">Colour</h3>
+            <div class="color-row">
+              <label for="te-hue">Hue</label>
+              <input type="range" id="te-hue" min="0" max="360" value="250">
+              <span class="slider-label__value" id="te-hue-val">250°</span>
+            </div>
+            <div class="color-row">
+              <label for="te-sat">Saturation</label>
+              <input type="range" id="te-sat" min="0" max="100" value="50">
+              <span class="slider-label__value" id="te-sat-val">50%</span>
+            </div>
+            <div class="color-row">
+              <label for="te-light">Lightness</label>
+              <input type="range" id="te-light" min="10" max="80" value="45">
+              <span class="slider-label__value" id="te-light-val">45%</span>
+            </div>
+
+            <div class="section-divider"></div>
+            <h3 class="section-title">Spacing &amp; Shape</h3>
+            <div class="color-row">
+              <label for="te-spacing">Spacing</label>
+              <input type="range" id="te-spacing" min="8" max="32" value="16">
+              <span class="slider-label__value" id="te-spacing-val">16px</span>
+            </div>
+            <div class="color-row">
+              <label for="te-radius">Radius</label>
+              <input type="range" id="te-radius" min="0" max="24" value="10">
+              <span class="slider-label__value" id="te-radius-val">10px</span>
+            </div>
+
+            <div class="section-divider"></div>
+            <h3 class="section-title">Typography</h3>
+            <div class="color-row">
+              <label for="te-fontsize">Font size</label>
+              <input type="range" id="te-fontsize" min="12" max="24" value="16">
+              <span class="slider-label__value" id="te-fontsize-val">16px</span>
+            </div>
+
+            <div class="export-actions">
+              <button class="btn btn--primary btn--sm" id="btn-copy-css" type="button">Copy CSS</button>
+              <button class="btn btn--secondary btn--sm" id="btn-copy-json" type="button">Copy JSON</button>
+            </div>
+          </div>
+
+          <!-- Live preview -->
+          <div class="token-editor__preview">
+            <div class="preview-scope" id="preview-scope">
+              <div class="preview-card">
+                <h3>Component Preview</h3>
+                <div class="preview-tags">
+                  <span class="preview-badge">Design</span>
+                  <span class="preview-badge">Tokens</span>
+                  <span class="preview-badge">CSS</span>
+                </div>
+                <p>This card reflects your token choices in real time. Adjust the sliders to see spacing, colour, radius, and typography update live.</p>
+                <button class="preview-btn" disabled>Interactive Button</button>
+              </div>
+              <div class="preview-card">
+                <h3>Another Component</h3>
+                <p>Different content to test how your tokens scale across varied layouts and text lengths.</p>
+                <div class="preview-tags">
+                  <span class="preview-badge">Accessibility</span>
+                  <span class="preview-badge">Systems</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:var(--space-xl)">
+          <a href="/pages/work/" class="btn btn--ghost">← Back to all projects</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <div id="footer-container"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

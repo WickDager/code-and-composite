@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Qwen workspace
+.qwen/
+
+# Pre-existing reference files (not part of the site)
+code and composite word, to be ignored.txt
+code_and_composite_expanded_blueprint.html
+code_and_composite_project_structure.html
+
+# Logs
+*.log
+npm-debug.log*
+
+# Optional: uncomment if you don't want to commit lock file
+# package-lock.json

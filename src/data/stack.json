@@ -1,0 +1,42 @@
+[
+  {
+    "name": "VS Code",
+    "category": "Development",
+    "oneliner": "Every line of code starts here. Extensions: Prettier, ESLint, Live Server, CSS Peek."
+  },
+  {
+    "name": "Figma",
+    "category": "Design",
+    "oneliner": "UI design, design systems, and prototyping. Auto-layout is my closest bridge to CSS Flexbox."
+  },
+  {
+    "name": "Photoshop",
+    "category": "Design",
+    "oneliner": "Photo manipulation, composites, and post-production on AI outputs. Frequency separation is daily workflow."
+  },
+  {
+    "name": "Illustrator",
+    "category": "Design",
+    "oneliner": "Logo design, icon systems, and vector artwork. The pen tool is non-negotiable."
+  },
+  {
+    "name": "Midjourney",
+    "category": "AI",
+    "oneliner": "Ideation and concept generation. Not the final product — the starting point for human direction."
+  },
+  {
+    "name": "Vercel",
+    "category": "Deployment",
+    "oneliner": "Zero-config deploys, edge network, custom domain with HTTPS. Push to main, it's live."
+  },
+  {
+    "name": "Chrome DevTools",
+    "category": "Development",
+    "oneliner": "Lighthouse audits, CSS container query debugging, and performance profiling."
+  },
+  {
+    "name": "InDesign",
+    "category": "Design",
+    "oneliner": "Editorial layouts, magazine spreads, and print work. Grid thinking at its purest."
+  }
+]

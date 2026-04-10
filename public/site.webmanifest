@@ -1,0 +1,16 @@
+{
+  "name": "Code & Composite",
+  "short_name": "C&C",
+  "description": "Developer x Designer Portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#534AB7",
+  "icons": [
+    {
+      "src": "/public/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ]
+}

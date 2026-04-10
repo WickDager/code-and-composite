@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Prompt Enhancer — Paste a plain prompt, get a cinematic version back. A project by Code &amp; Composite.">
+  <meta name="author" content="Code &amp; Composite">
+  <meta name="theme-color" content="#534AB7">
+
+  <!-- Security -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://formspree.io; frame-ancestors 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI Prompt Enhancer — Code &amp; Composite">
+  <meta property="og:description" content="Paste a plain prompt, get a cinematic version back.">
+  <meta property="og:image" content="/public/images/og/og-home.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://codeandcomposite.com/pages/work/prompt-enhancer/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Prompt Enhancer — Code &amp; Composite">
+  <meta name="twitter:description" content="Paste a plain prompt, get a cinematic version back.">
+  <meta name="twitter:image" content="/public/images/og/og-home.jpg">
+
+  <title>AI Prompt Enhancer — Code &amp; Composite</title>
+  <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="/public/site.webmanifest">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://codeandcomposite.com/pages/work/prompt-enhancer/">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Critical CSS inlined -->
+  <style>
+    :root{--color-bg:#ffffff;--color-bg-secondary:#f7f6f3;--color-accent:#534ab7;--color-text-primary:#1a1a18;--color-text-secondary:#6b6a65;--color-text-tertiary:#9c9a92;--color-border:rgba(0,0,0,0.1);--color-border-tertiary:rgba(0,0,0,0.04);--nav-height:56px;--color-text-inverse:#ffffff;--color-accent-hover:#4439a0;--fs-xs:clamp(0.7rem,0.65rem + 0.25vw,0.8rem);--fs-sm:clamp(0.8rem,0.75rem + 0.25vw,0.9rem);--fs-base:clamp(0.9rem,0.85rem + 0.25vw,1rem);--fs-md:clamp(1rem,0.9rem + 0.5vw,1.25rem);--fs-lg:clamp(1.15rem,1rem + 0.75vw,1.5rem);--fs-xl:clamp(1.4rem,1.1rem + 1.5vw,2rem);--fs-2xl:clamp(1.75rem,1.3rem + 2.25vw,2.75rem);--fs-hero:clamp(2.5rem,1.5rem + 5vw,4.5rem);--font-sans:'Inter',system-ui,sans-serif;--font-mono:'JetBrains Mono',monospace;--lh-tight:1.1;--lh-snug:1.25;--lh-relaxed:1.75;--fw-medium:500;--fw-semibold:600;--radius-sm:6px;--radius-md:10px;--radius-lg:16px;--radius-full:9999px;--space-2xs:4px;--space-xs:8px;--space-sm:12px;--space-md:16px;--space-lg:24px;--space-xl:32px;--space-2xl:48px;--space-3xl:64px;--space-4xl:96px;--transition:150ms ease;--shadow-md:0 4px 12px rgba(0,0,0,0.08);--shadow-sm:0 1px 3px rgba(0,0,0,0.06);--grain-opacity:0.03;--max-width:1200px}
+    body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:var(--grain-opacity);background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px 256px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-sans);font-size:var(--fs-base);line-height:1.5;color:var(--color-text-primary);background:var(--color-bg);-webkit-font-smoothing:antialiased}
+    .skip-link{position:absolute;top:-100%;left:var(--space-md);z-index:10000;background:var(--color-accent);color:var(--color-text-inverse);padding:var(--space-xs) var(--space-md);border-radius:var(--radius-sm);font-size:var(--fs-sm);font-weight:var(--fw-medium)}.skip-link:focus{top:var(--space-md)}
+    .site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-height);display:flex;align-items:center;justify-content:space-between;padding:0 var(--space-lg);background:color-mix(in srgb, var(--color-bg) 85%, transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:0.5px solid var(--color-border-tertiary)}
+    .site-nav__logo{display:flex;align-items:center;gap:var(--space-xs);font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--color-text-primary);text-decoration:none}.site-nav__logo:hover{color:var(--color-accent)}
+    .site-nav__logo-icon{font-size:var(--fs-md);color:var(--color-accent)}
+    .site-nav__amp{color:var(--color-accent);font-style:italic}
+    .site-nav__links{display:flex;align-items:center;gap:var(--space-xs)}
+    .site-nav__link{font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--color-text-secondary);text-decoration:none;padding:var(--space-2xs) var(--space-xs);border-radius:var(--radius-sm);transition:color var(--transition),background var(--transition)}.site-nav__link:hover{color:var(--color-text-primary);background:var(--color-bg-secondary)}
+    .site-nav__theme{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:var(--radius-sm);color:var(--color-text-secondary);margin-left:var(--space-xs);cursor:pointer;background:none;border:none}.site-nav__theme:hover{color:var(--color-text-primary);background:var(--color-bg-secondary)}
+    .icon--sun{display:none}.icon--moon{display:block}html.dark .icon--sun{display:block}html.dark .icon--moon{display:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 var(--space-lg)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-xs);font-family:var(--font-sans);font-size:var(--fs-sm);font-weight:var(--fw-medium);padding:10px 20px;border-radius:var(--radius-md);border:0.5px solid var(--color-border);cursor:pointer;text-decoration:none;transition:all var(--transition);line-height:1;white-space:nowrap}.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm)}.btn:active{transform:translateY(0)}
+    .btn--primary{background:var(--color-accent);color:var(--color-text-inverse);border-color:var(--color-accent)}.btn--primary:hover{background:var(--color-accent-hover);border-color:var(--color-accent-hover)}
+    .btn--secondary{background:var(--color-bg);color:var(--color-text-primary);border-color:var(--color-border)}.btn--secondary:hover{background:var(--color-bg-secondary)}
+    .fade-in{opacity:0;transform:translateY(16px);transition:opacity 300ms ease,transform 300ms ease}.fade-in.visible{opacity:1;transform:translateY(0)}
+    section{padding:var(--space-3xl) 0}
+    .section-header{margin-bottom:var(--space-xl)}.section-header__eyebrow{font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--space-xs)}.section-header__title{font-size:var(--fs-xl);font-weight:var(--fw-semibold);color:var(--color-text-primary);letter-spacing:-0.02em}
+    .site-footer{padding:var(--space-3xl) 0 var(--space-xl);border-top:0.5px solid var(--color-border-tertiary)}.site-footer__inner{display:grid;grid-template-columns:1fr 2fr;gap:var(--space-2xl)}.site-footer__brand{display:flex;flex-direction:column;gap:var(--space-xs)}.site-footer__logo{font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--color-text-primary)}.site-footer__tagline{font-size:var(--fs-xs);color:var(--color-text-secondary)}.site-footer__links{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg)}.site-footer__heading{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:var(--space-xs)}.site-footer__links a{display:block;font-size:var(--fs-xs);color:var(--color-text-secondary);text-decoration:none;padding:var(--space-2xs) 0;transition:color var(--transition)}.site-footer__links a:hover{color:var(--color-accent)}.site-footer__bottom{grid-column:1/-1;margin-top:var(--space-lg);padding-top:var(--space-lg);border-top:0.5px solid var(--color-border-tertiary)}.site-footer__copy{font-size:var(--fs-xs);color:var(--color-text-tertiary)}
+    @media(max-width:768px){.site-nav__links{display:none}.site-nav__links.open{display:flex;position:fixed;top:var(--nav-height);left:0;right:0;bottom:0;background:var(--color-bg);flex-direction:column;align-items:center;justify-content:center;gap:var(--space-md);z-index:999}.site-footer__inner{grid-template-columns:1fr}.site-footer__links{grid-template-columns:1fr}}
+    @media(prefers-color-scheme:dark){:root{--color-bg:#111110;--color-bg-secondary:#1a1a18;--color-text-primary:#e8e6de;--color-text-secondary:#a3a198;--color-text-tertiary:#6b6a63;--color-border:rgba(255,255,255,0.1);--color-border-tertiary:rgba(255,255,255,0.04);--color-accent:#7f77dd;--color-accent-hover:#948de8;--color-text-inverse:#1a1a18}}
+
+    /* Page-specific styles */
+    .page-header{padding:calc(var(--nav-height) + var(--space-3xl)) 0 var(--space-2xl);text-align:center}
+    .page-header__eyebrow{font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--space-xs)}
+    .page-header__title{font-size:var(--fs-2xl);font-weight:var(--fw-semibold);color:var(--color-text-primary);letter-spacing:-0.03em;line-height:var(--lh-tight);margin-bottom:var(--space-sm)}
+    .page-header__desc{font-size:var(--fs-md);color:var(--color-text-secondary);max-width:55ch;margin:0 auto;line-height:var(--lh-relaxed)}
+    .back-link{display:inline-flex;align-items:center;gap:var(--space-2xs);font-size:var(--fs-xs);color:var(--color-text-secondary);text-decoration:none;margin-bottom:var(--space-lg);transition:color var(--transition)}.back-link:hover{color:var(--color-accent)}
+
+    .enhancer-tool{background:var(--color-bg-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--radius-lg);padding:var(--space-xl);max-width:720px;margin:0 auto}
+    .enhancer-tool label{display:block;font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--color-text-primary);margin-bottom:var(--space-xs)}
+    .enhancer-tool textarea{width:100%;min-height:120px;font-family:var(--font-sans);font-size:var(--fs-sm);line-height:1.6;color:var(--color-text-primary);background:var(--color-bg);border:0.5px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-md);resize:vertical;transition:border-color var(--transition)}
+    .enhancer-tool textarea:focus{outline:none;border-color:var(--color-accent);box-shadow:0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent)}
+    .enhancer-tool textarea::placeholder{color:var(--color-text-tertiary)}
+
+    .tone-presets{display:flex;flex-wrap:wrap;gap:var(--space-xs);margin:var(--space-md) 0}
+    .tone-btn{font-family:var(--font-sans);font-size:var(--fs-xs);font-weight:var(--fw-medium);padding:var(--space-2xs) var(--space-sm);border-radius:var(--radius-full);border:0.5px solid var(--color-border);background:var(--color-bg);color:var(--color-text-secondary);cursor:pointer;transition:all var(--transition)}
+    .tone-btn:hover,.tone-btn.active{background:var(--color-accent);color:var(--color-text-inverse);border-color:var(--color-accent)}
+
+    .enhance-actions{display:flex;gap:var(--space-sm);margin:var(--space-md) 0}
+
+    .output-area{margin-top:var(--space-md)}
+    .output-area label{display:block;font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--color-text-primary);margin-bottom:var(--space-xs)}
+    .output-box{width:100%;min-height:120px;font-family:var(--font-mono);font-size:var(--fs-sm);line-height:1.6;color:var(--color-accent);background:var(--color-bg);border:0.5px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-md);white-space:pre-wrap;word-break:break-word;position:relative}
+    .output-box:empty::before{content:'Your enhanced prompt will appear here...';color:var(--color-text-tertiary);font-family:var(--font-sans);font-style:italic}
+    .copy-btn{margin-top:var(--space-xs)}
+    .toast{position:fixed;bottom:var(--space-lg);left:50%;transform:translateX(-50%) translateY(20px);background:var(--color-text-primary);color:var(--color-bg);padding:var(--space-xs) var(--space-lg);border-radius:var(--radius-full);font-size:var(--fs-xs);font-weight:var(--fw-medium);opacity:0;transition:all 200ms ease;z-index:9000;pointer-events:none}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  </style>
+
+  <!-- Non-critical CSS loaded async -->
+  <link rel="stylesheet" href="/src/css/tokens.css">
+  <link rel="stylesheet" href="/src/css/global.css">
+  <link rel="stylesheet" href="/src/css/layout.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <link rel="stylesheet" href="/src/css/dark-mode.css">
+  <link rel="stylesheet" href="/src/css/animations.css" media="print" onload="this.media='all'">
+  <link rel="noscript" href="/src/css/animations.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div id="nav-container"></div>
+
+  <main id="main-content" class="page-main">
+    <div class="container">
+
+      <a href="/pages/work/" class="back-link" aria-label="Back to all work">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        All projects
+      </a>
+
+      <header class="page-header fade-in">
+        <p class="page-header__eyebrow">Project</p>
+        <h1 class="page-header__title">AI Prompt Enhancer</h1>
+        <p class="page-header__desc">Paste a plain prompt, get a cinematic version back.</p>
+      </header>
+
+      <section class="fade-in" aria-label="Prompt enhancer tool">
+        <div class="enhancer-tool">
+          <label for="input-prompt">Input prompt</label>
+          <textarea id="input-prompt" placeholder="e.g. A photo of a cat sitting on a windowsill" aria-describedby="input-help"></textarea>
+          <p id="input-help" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Type or paste your prompt below, then choose a tone and click Enhance.</p>
+
+          <fieldset class="tone-presets" aria-label="Tone presets">
+            <legend class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Select a tone</legend>
+            <button type="button" class="tone-btn active" data-tone="cinematic" aria-pressed="true">Cinematic</button>
+            <button type="button" class="tone-btn" data-tone="product" aria-pressed="false">Product</button>
+            <button type="button" class="tone-btn" data-tone="editorial" aria-pressed="false">Editorial</button>
+            <button type="button" class="tone-btn" data-tone="technical" aria-pressed="false">Technical</button>
+          </fieldset>
+
+          <div class="enhance-actions">
+            <button type="button" class="btn btn--primary" id="enhance-btn" aria-label="Enhance prompt">Enhance</button>
+            <button type="button" class="btn btn--secondary" id="clear-btn" aria-label="Clear input and output">Clear</button>
+          </div>
+
+          <div class="output-area">
+            <label for="output-prompt">Enhanced prompt</label>
+            <div class="output-box" id="output-prompt" role="region" aria-live="polite" aria-label="Enhanced prompt output"></div>
+            <button type="button" class="btn btn--secondary copy-btn" id="copy-btn" aria-label="Copy enhanced prompt to clipboard">Copy to clipboard</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard!</div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var toneModifiers = {
+        cinematic: {
+          prefix: 'Create a stunning, cinematic scene with dramatic lighting and rich atmospheric detail. ',
+          suffix: ', shot on 35mm lens, golden hour lighting, volumetric fog, shallow depth of field, film grain texture, anamorphic lens flare, moody colour grading, photorealistic, ultra-detailed, 8K resolution'
+        },
+        product: {
+          prefix: 'Professional product photography with clean, commercial-grade presentation. ',
+          suffix: ', studio lighting on seamless backdrop, soft diffused key light, crisp reflections, e-commerce quality, sharp focus on product, minimalist composition, high-end catalog aesthetic'
+        },
+        editorial: {
+          prefix: 'Editorial-style composition with bold visual storytelling and intentional design. ',
+          suffix: ', magazine-quality layout, editorial lighting, rule of thirds composition, sophisticated colour palette, intentional negative space, editorial fashion aesthetic, art-directed, high-end retouching'
+        },
+        technical: {
+          prefix: 'Technical illustration with precise detail and informative visual clarity. ',
+          suffix: ', orthographic accuracy, labelled callouts, clean line work, isometric perspective, schematic overlay, technical annotation, engineering documentation style, crisp vector rendering, measurement guides'
+        }
+      };
+
+      var inputEl = document.getElementById('input-prompt');
+      var outputEl = document.getElementById('output-prompt');
+      var enhanceBtn = document.getElementById('enhance-btn');
+      var clearBtn = document.getElementById('clear-btn');
+      var copyBtn = document.getElementById('copy-btn');
+      var toneBtns = document.querySelectorAll('.tone-btn');
+      var toast = document.getElementById('toast');
+      var activeTone = 'cinematic';
+
+      toneBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          toneBtns.forEach(function (b) {
+            b.classList.remove('active');
+            b.setAttribute('aria-pressed', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+          activeTone = btn.getAttribute('data-tone');
+        });
+      });
+
+      enhanceBtn.addEventListener('click', function () {
+        var input = inputEl.value.trim();
+        if (!input) {
+          outputEl.textContent = '';
+          return;
+        }
+        var modifier = toneModifiers[activeTone];
+        var enhanced = modifier.prefix + input.charAt(0).toUpperCase() + input.slice(1).replace(/\.$/, '') + modifier.suffix;
+        outputEl.textContent = enhanced;
+      });
+
+      clearBtn.addEventListener('click', function () {
+        inputEl.value = '';
+        outputEl.textContent = '';
+        inputEl.focus();
+      });
+
+      copyBtn.addEventListener('click', function () {
+        var text = outputEl.textContent;
+        if (!text) return;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(showToast);
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showToast();
+        }
+      });
+
+      function showToast() {
+        toast.classList.add('show');
+        setTimeout(function () {
+          toast.classList.remove('show');
+        }, 2000);
+      }
+    })();
+  </script>
+
+  <script src="/src/js/main.js" defer></script>
+</body>
+</html>

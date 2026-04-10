@@ -1,0 +1,90 @@
+[
+  {
+    "id": "prompt-enhancer",
+    "title": "AI Prompt Enhancer",
+    "slug": "prompt-enhancer",
+    "tags": ["JavaScript", "UI Design", "AI"],
+    "description": "Paste a plain prompt, get a cinematic version back. Tone presets, shareable URLs, clipboard integration.",
+    "url": "/pages/work/prompt-enhancer/",
+    "og_image": "/public/images/og/og-prompt-enhancer.jpg",
+    "audience": ["it", "design"],
+    "featured": true
+  },
+  {
+    "id": "icon-system",
+    "title": "SVG Icon System",
+    "slug": "icon-system",
+    "tags": ["SVG", "JavaScript", "DOM Manipulation"],
+    "description": "Live search filter, colour picker that regenerates SVG fills, downloadable ZIP of all icons via JSZip.",
+    "url": "/pages/work/icon-system/",
+    "og_image": "/public/images/og/og-icon-system.jpg",
+    "audience": ["it"],
+    "featured": true
+  },
+  {
+    "id": "token-editor",
+    "title": "Live Design Token Editor",
+    "slug": "token-editor",
+    "tags": ["CSS Custom Properties", "JavaScript", "Design Tokens", "UI Design"],
+    "description": "Sliders update CSS custom properties in real time. Export as tokens.json or a :root {} block. Bridges design and dev in one URL.",
+    "url": "/pages/work/token-editor/",
+    "og_image": "/public/images/og/og-token-editor.jpg",
+    "audience": ["it", "design"],
+    "featured": true
+  },
+  {
+    "id": "contrast-checker",
+    "title": "Accessibility Contrast Checker",
+    "slug": "contrast-checker",
+    "tags": ["Accessibility", "WCAG", "JavaScript", "Color Theory"],
+    "description": "WCAG AA/AAA pass/fail badges with contrast ratio. Suggests nearest compliant colour alternative.",
+    "url": "/pages/work/contrast-checker/",
+    "og_image": "/public/images/og/og-contrast-checker.jpg",
+    "audience": ["it"],
+    "featured": false
+  },
+  {
+    "id": "figma-to-code",
+    "title": "Figma-to-Code Showcase",
+    "slug": "figma-to-code",
+    "tags": ["HTML", "CSS", "Figma", "Pixel Perfect"],
+    "description": "Side-by-side: Figma screenshot on left, live HTML/CSS on right. Scroll-synced. Design spec to pixel-perfect code.",
+    "url": "/pages/work/figma-to-code/",
+    "og_image": "/public/images/og/og-figma-to-code.jpg",
+    "audience": ["it", "design"],
+    "featured": false
+  },
+  {
+    "id": "motion-playground",
+    "title": "Motion Playground",
+    "slug": "motion-playground",
+    "tags": ["CSS Animations", "Keyframes", "Micro-interactions"],
+    "description": "CSS keyframe demos across entrance, loading, and micro-interaction categories. Click a card to reveal the animation code.",
+    "url": "/pages/work/motion-playground/",
+    "og_image": "/public/images/og/og-motion-playground.jpg",
+    "audience": ["it", "design"],
+    "featured": false
+  },
+  {
+    "id": "component-library",
+    "title": "Component Library (mini)",
+    "slug": "component-library",
+    "tags": ["HTML", "CSS", "Design Systems", "Accessibility"],
+    "description": "15 reusable UI components — buttons, modals, toasts — documented Storybook-style. Systems thinking, not one-offs.",
+    "url": "/pages/work/component-library/",
+    "og_image": "/public/images/og/og-component-library.jpg",
+    "audience": ["it"],
+    "featured": false
+  },
+  {
+    "id": "responsive-inspector",
+    "title": "Responsive Layout Inspector",
+    "slug": "responsive-inspector",
+    "tags": ["Responsive Design", "JavaScript", "Dev Tools"],
+    "description": "Drag a width slider to preview any URL at mobile/tablet/desktop. Shows active breakpoints visually.",
+    "url": "/pages/work/responsive-inspector/",
+    "og_image": "/public/images/og/og-responsive-inspector.jpg",
+    "audience": ["it"],
+    "featured": false
+  }
+]

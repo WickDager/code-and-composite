@@ -1,0 +1,71 @@
+[
+  {
+    "id": "datacenter-v5",
+    "title": "Data centre — v1 to v5 evolution",
+    "tool": "Midjourney + Photoshop",
+    "prompt": "A massive data centre interior, server racks stretching into infinity, cinematic lighting, volumetric fog, teal accent lights, photorealistic --ar 16:9 --v 6",
+    "alt": "Cinematic photograph of a data centre with rows of server racks and teal accent lighting",
+    "src": "/public/images/ai-lab/datacenter-v5.jpg",
+    "category": "prompt-evolution",
+    "versions": [
+      {"version": 1, "prompt": "data centre interior", "note": "Generic, flat lighting"},
+      {"version": 2, "prompt": "data centre, server racks, cinematic lighting", "note": "Better mood but still generic"},
+      {"version": 3, "prompt": "data centre interior, volumetric fog, teal accent lights, dramatic perspective", "note": "Getting closer — perspective improving"},
+      {"version": 4, "prompt": "massive data centre, infinite server rows, volumetric fog, teal LED accents, cinematic --ar 16:9", "note": "Strong composition, colour grade needed"},
+      {"version": 5, "prompt": "A massive data centre interior, server racks stretching into infinity, cinematic lighting, volumetric fog, teal accent lights, photorealistic --ar 16:9 --v 6", "note": "Final — direction, not generation, made this"}
+    ],
+    "audience": ["it", "design"]
+  },
+  {
+    "id": "ui-bg-abstract",
+    "title": "Abstract UI background — style transfer series",
+    "tool": "Midjourney",
+    "prompt": "Abstract geometric background for a modern web app UI, minimal, clean, subtle gradient --ar 16:9",
+    "alt": "Abstract geometric background suitable for modern web UI design",
+    "src": "/public/images/ai-lab/ui-bg-abstract.jpg",
+    "category": "style-transfer",
+    "styles": ["minimal", "brutalist", "neon", "watercolour", "blueprint", "isometric"],
+    "audience": ["design"]
+  },
+  {
+    "id": "liquid-type-poster",
+    "title": "Liquid typography poster",
+    "tool": "Midjourney + Photoshop",
+    "prompt": "A typographic poster where the letters appear to be made of flowing liquid metal, silver and black, high contrast, graphic design --ar 3:4",
+    "alt": "Poster design featuring letters made of flowing liquid metal in silver and black",
+    "src": "/public/images/ai-lab/liquid-type-poster.jpg",
+    "category": "ai-human-polish",
+    "stages": ["raw-ai", "crop", "colour-grade", "type-added"],
+    "audience": ["design"]
+  },
+  {
+    "id": "negative-space-mountain",
+    "title": "Negative space challenge — mountain",
+    "tool": "Midjourney",
+    "prompt": "A mountain landscape where the mountain shape is defined entirely by negative space against a gradient sky, minimal, zen composition --ar 16:9",
+    "alt": "Minimal landscape where a mountain shape is formed by negative space against a gradient sky",
+    "src": "/public/images/ai-lab/negative-space-mountain.jpg",
+    "category": "experiment",
+    "audience": ["design"]
+  },
+  {
+    "id": "ai-ui-concept",
+    "title": "AI-assisted UI concept — fitness app",
+    "tool": "Midjourney + Figma",
+    "prompt": "A modern mobile fitness app UI, clean white interface with coral accent colours, workout tracking screen, activity rings, modern sans-serif typography --ar 9:16",
+    "alt": "Full mobile app UI concept for a fitness tracking application with clean modern interface",
+    "src": "/public/images/ai-lab/ai-ui-concept.jpg",
+    "category": "ai-ui-concept",
+    "audience": ["it", "design"]
+  },
+  {
+    "id": "prompt-dissector-demo",
+    "title": "Prompt dissector — demo image",
+    "tool": "Midjourney",
+    "prompt": "An architectural photography style interior shot of a modern minimalist living room, concrete walls, floor-to-ceiling windows, natural light, Scandinavian furniture --ar 16:9 --v 6",
+    "alt": "Modern minimalist living room with concrete walls and floor-to-ceiling windows used for prompt dissection demo",
+    "src": "/public/images/ai-lab/prompt-dissector-demo.jpg",
+    "category": "prompt-evolution",
+    "audience": ["it", "design"]
+  }
+]

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Figma-to-Code Showcase — Pixel-perfect implementation from design to production. A project by Code &amp; Composite.">
+  <meta name="author" content="Code &amp; Composite">
+  <meta name="theme-color" content="#534AB7">
+
+  <!-- Security -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://formspree.io; frame-ancestors 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Figma-to-Code Showcase — Code &amp; Composite">
+  <meta property="og:description" content="Pixel-perfect implementation from design to production.">
+  <meta property="og:image" content="/public/images/og/og-home.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://codeandcomposite.com/pages/work/figma-to-code/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Figma-to-Code Showcase — Code &amp; Composite">
+  <meta name="twitter:description" content="Pixel-perfect implementation from design to production.">
+  <meta name="twitter:image" content="/public/images/og/og-home.jpg">
+
+  <title>Figma-to-Code Showcase — Code &amp; Composite</title>
+  <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="/public/site.webmanifest">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://codeandcomposite.com/pages/work/figma-to-code/">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Critical CSS inlined -->
+  <style>
+    :root{--color-bg:#ffffff;--color-bg-secondary:#f7f6f3;--color-accent:#534ab7;--color-text-primary:#1a1a18;--color-text-secondary:#6b6a65;--color-text-tertiary:#9c9a92;--color-border:rgba(0,0,0,0.1);--color-border-tertiary:rgba(0,0,0,0.04);--nav-height:56px;--color-text-inverse:#ffffff;--color-accent-hover:#4439a0;--fs-xs:clamp(0.7rem,0.65rem + 0.25vw,0.8rem);--fs-sm:clamp(0.8rem,0.75rem + 0.25vw,0.9rem);--fs-base:clamp(0.9rem,0.85rem + 0.25vw,1rem);--fs-md:clamp(1rem,0.9rem + 0.5vw,1.25rem);--fs-lg:clamp(1.15rem,1rem + 0.75vw,1.5rem);--fs-xl:clamp(1.4rem,1.1rem + 1.5vw,2rem);--fs-2xl:clamp(1.75rem,1.3rem + 2.25vw,2.75rem);--fs-hero:clamp(2.5rem,1.5rem + 5vw,4.5rem);--font-sans:'Inter',system-ui,sans-serif;--font-mono:'JetBrains Mono',monospace;--lh-tight:1.1;--lh-snug:1.25;--lh-relaxed:1.75;--fw-medium:500;--fw-semibold:600;--radius-sm:6px;--radius-md:10px;--radius-lg:16px;--radius-full:9999px;--space-2xs:4px;--space-xs:8px;--space-sm:12px;--space-md:16px;--space-lg:24px;--space-xl:32px;--space-2xl:48px;--space-3xl:64px;--space-4xl:96px;--transition:150ms ease;--shadow-md:0 4px 12px rgba(0,0,0,0.08);--shadow-sm:0 1px 3px rgba(0,0,0,0.06);--grain-opacity:0.03;--max-width:1200px}
+    body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:var(--grain-opacity);background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px 256px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-sans);font-size:var(--fs-base);line-height:1.5;color:var(--color-text-primary);background:var(--color-bg);-webkit-font-smoothing:antialiased}
+    .skip-link{position:absolute;top:-100%;left:var(--space-md);z-index:10000;background:var(--color-accent);color:var(--color-text-inverse);padding:var(--space-xs) var(--space-md);border-radius:var(--radius-sm);font-size:var(--fs-sm);font-weight:var(--fw-medium)}.skip-link:focus{top:var(--space-md)}
+    .site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-height);display:flex;align-items:center;justify-content:space-between;padding:0 var(--space-lg);background:color-mix(in srgb, var(--color-bg) 85%, transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:0.5px solid var(--color-border-tertiary)}
+    .site-nav__logo{display:flex;align-items:center;gap:var(--space-xs);font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--color-text-primary);text-decoration:none}.site-nav__logo:hover{color:var(--color-accent)}
+    .site-nav__logo-icon{font-size:var(--fs-md);color:var(--color-accent)}
+    .site-nav__amp{color:var(--color-accent);font-style:italic}
+    .site-nav__links{display:flex;align-items:center;gap:var(--space-xs)}
+    .site-nav__link{font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--color-text-secondary);text-decoration:none;padding:var(--space-2xs) var(--space-xs);border-radius:var(--radius-sm);transition:color var(--transition),background var(--transition)}.site-nav__link:hover{color:var(--color-text-primary);background:var(--color-bg-secondary)}
+    .site-nav__theme{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:var(--radius-sm);color:var(--color-text-secondary);margin-left:var(--space-xs);cursor:pointer;background:none;border:none}.site-nav__theme:hover{color:var(--color-text-primary);background:var(--color-bg-secondary)}
+    .icon--sun{display:none}.icon--moon{display:block}html.dark .icon--sun{display:block}html.dark .icon--moon{display:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 var(--space-lg)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-xs);font-family:var(--font-sans);font-size:var(--fs-sm);font-weight:var(--fw-medium);padding:10px 20px;border-radius:var(--radius-md);border:0.5px solid var(--color-border);cursor:pointer;text-decoration:none;transition:all var(--transition);line-height:1;white-space:nowrap}.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm)}.btn:active{transform:translateY(0)}
+    .btn--primary{background:var(--color-accent);color:var(--color-text-inverse);border-color:var(--color-accent)}.btn--primary:hover{background:var(--color-accent-hover);border-color:var(--color-accent-hover)}
+    .btn--secondary{background:var(--color-bg);color:var(--color-text-primary);border-color:var(--color-border)}.btn--secondary:hover{background:var(--color-bg-secondary)}
+    .fade-in{opacity:0;transform:translateY(16px);transition:opacity 300ms ease,transform 300ms ease}.fade-in.visible{opacity:1;transform:translateY(0)}
+    section{padding:var(--space-3xl) 0}
+    .section-header{margin-bottom:var(--space-xl)}.section-header__eyebrow{font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--space-xs)}.section-header__title{font-size:var(--fs-xl);font-weight:var(--fw-semibold);color:var(--color-text-primary);letter-spacing:-0.02em}
+    .site-footer{padding:var(--space-3xl) 0 var(--space-xl);border-top:0.5px solid var(--color-border-tertiary)}.site-footer__inner{display:grid;grid-template-columns:1fr 2fr;gap:var(--space-2xl)}.site-footer__brand{display:flex;flex-direction:column;gap:var(--space-xs)}.site-footer__logo{font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--color-text-primary)}.site-footer__tagline{font-size:var(--fs-xs);color:var(--color-text-secondary)}.site-footer__links{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg)}.site-footer__heading{font-size:var(--fs-xs);font-weight:var(--fw-semibold);color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:var(--space-xs)}.site-footer__links a{display:block;font-size:var(--fs-xs);color:var(--color-text-secondary);text-decoration:none;padding:var(--space-2xs) 0;transition:color var(--transition)}.site-footer__links a:hover{color:var(--color-accent)}.site-footer__bottom{grid-column:1/-1;margin-top:var(--space-lg);padding-top:var(--space-lg);border-top:0.5px solid var(--color-border-tertiary)}.site-footer__copy{font-size:var(--fs-xs);color:var(--color-text-tertiary)}
+    @media(max-width:768px){.site-nav__links{display:none}.site-nav__links.open{display:flex;position:fixed;top:var(--nav-height);left:0;right:0;bottom:0;background:var(--color-bg);flex-direction:column;align-items:center;justify-content:center;gap:var(--space-md);z-index:999}.site-footer__inner{grid-template-columns:1fr}.site-footer__links{grid-template-columns:1fr}}
+    @media(prefers-color-scheme:dark){:root{--color-bg:#111110;--color-bg-secondary:#1a1a18;--color-text-primary:#e8e6de;--color-text-secondary:#a3a198;--color-text-tertiary:#6b6a63;--color-border:rgba(255,255,255,0.1);--color-border-tertiary:rgba(255,255,255,0.04);--color-accent:#7f77dd;--color-accent-hover:#948de8;--color-text-inverse:#1a1a18}}
+
+    /* Page-specific styles */
+    .page-header{padding:calc(var(--nav-height) + var(--space-3xl)) 0 var(--space-2xl);text-align:center}
+    .page-header__eyebrow{font-size:var(--fs-xs);font-weight:var(--fw-medium);color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--space-xs)}
+    .page-header__title{font-size:var(--fs-2xl);font-weight:var(--fw-semibold);color:var(--color-text-primary);letter-spacing:-0.03em;line-height:var(--lh-tight);margin-bottom:var(--space-sm)}
+    .page-header__desc{font-size:var(--fs-md);color:var(--color-text-secondary);max-width:55ch;margin:0 auto;line-height:var(--lh-relaxed)}
+    .back-link{display:inline-flex;align-items:center;gap:var(--space-2xs);font-size:var(--fs-xs);color:var(--color-text-secondary);text-decoration:none;margin-bottom:var(--space-lg);transition:color var(--transition)}.back-link:hover{color:var(--color-accent)}
+
+    .compare-section{padding:var(--space-xl) 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+    .compare-section:last-child{border-bottom:none}
+    .compare-section__title{font-size:var(--fs-md);font-weight:var(--fw-semibold);margin-bottom:var(--space-md);text-align:center}
+
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg)}
+    .compare-panel{border:0.5px solid var(--color-border-tertiary);border-radius:var(--radius-lg);overflow:hidden}
+    .compare-panel__label{display:flex;align-items:center;gap:var(--space-2xs);font-size:var(--fs-xs);font-weight:var(--fw-semibold);text-transform:uppercase;letter-spacing:0.06em;padding:var(--space-xs) var(--space-md);background:var(--color-bg-secondary);color:var(--color-text-tertiary)}
+    .compare-panel__label svg{width:14px;height:14px}
+
+    /* Figma mock styles */
+    .figma-mock{background:#f0f0eb;padding:var(--space-xl);display:flex;align-items:center;justify-content:center;min-height:280px}
+    .figma-mock__canvas{background:#ffffff;border-radius:var(--radius-md);box-shadow:var(--shadow-md);padding:var(--space-lg);max-width:320px;width:100%}
+    .figma-mock__annotation{position:relative}
+    .figma-mock__annotation::after{content:'';position:absolute;inset:-4px;border:1px dashed var(--color-accent);border-radius:var(--radius-md);pointer-events:none;opacity:0.5}
+    .figma-mock__dimensions{font-family:var(--font-mono);font-size:10px;color:var(--color-text-tertiary);margin-top:var(--space-xs);text-align:center}
+
+    /* Live code preview styles */
+    .live-preview{background:var(--color-bg-secondary);padding:var(--space-xl);display:flex;align-items:center;justify-content:center;min-height:280px}
+
+    /* Component: Card */
+    .demo-card{background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:12px;overflow:hidden;max-width:300px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+    .demo-card__img{width:100%;height:140px;background:linear-gradient(135deg,#534ab7 0%,#7f77dd 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:var(--fs-lg);font-weight:600}
+    .demo-card__body{padding:16px}
+    .demo-card__title{font-size:14px;font-weight:600;color:#1a1a18;margin-bottom:4px}
+    .demo-card__desc{font-size:12px;color:#6b6a65;line-height:1.5;margin-bottom:12px}
+    .demo-card__btn{display:inline-block;font-size:12px;font-weight:500;color:#fff;background:#534ab7;padding:6px 16px;border-radius:8px;border:none;cursor:pointer;text-decoration:none}
+
+    /* Component: Button variants */
+    .demo-buttons{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+    .demo-btn{font-family:var(--font-sans);font-size:14px;font-weight:500;padding:10px 24px;border-radius:8px;border:none;cursor:pointer;text-decoration:none;line-height:1}
+    .demo-btn--primary{background:#534ab7;color:#fff}
+    .demo-btn--primary:hover{background:#4439a0}
+    .demo-btn--secondary{background:transparent;color:#534ab7;border:1px solid #534ab7}
+    .demo-btn--secondary:hover{background:rgba(83,74,183,0.06)}
+    .demo-btn--ghost{background:transparent;color:#6b6a65}
+    .demo-btn--ghost:hover{background:rgba(0,0,0,0.04);color:#1a1a18}
+
+    /* Component: Input */
+    .demo-input-group{max-width:280px;text-align:left}
+    .demo-input-group label{display:block;font-size:12px;font-weight:600;color:#1a1a18;margin-bottom:4px}
+    .demo-input-group input{width:100%;font-size:14px;padding:8px 12px;border:1px solid rgba(0,0,0,0.12);border-radius:8px;color:#1a1a18;font-family:var(--font-sans)}
+    .demo-input-group input:focus{outline:none;border-color:#534ab7;box-shadow:0 0 0 3px rgba(83,74,183,0.15)}
+    .demo-input-group .hint{font-size:11px;color:#9c9a92;margin-top:4px}
+
+    /* Component: Badge row */
+    .demo-badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+    .demo-badge{font-size:11px;font-weight:600;padding:3px 12px;border-radius:9999px;display:inline-block}
+    .demo-badge--success{background:#e6f4ea;color:#137333}
+    .demo-badge--warning{background:#fef7e0;color:#b06000}
+    .demo-badge--info{background:#e8f0fe;color:#1967d2}
+
+    code.code-block{display:block;font-family:var(--font-mono);font-size:12px;line-height:1.7;color:var(--color-text-secondary);background:var(--color-bg);border:0.5px solid var(--color-border-tertiary);border-radius:var(--radius-md);padding:var(--space-md);margin-top:var(--space-md);overflow-x:auto;white-space:pre;tab-size:2}
+
+    @media(max-width:768px){.compare-grid{grid-template-columns:1fr}}
+  </style>
+
+  <!-- Non-critical CSS loaded async -->
+  <link rel="stylesheet" href="/src/css/tokens.css">
+  <link rel="stylesheet" href="/src/css/global.css">
+  <link rel="stylesheet" href="/src/css/layout.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <link rel="stylesheet" href="/src/css/dark-mode.css">
+  <link rel="stylesheet" href="/src/css/animations.css" media="print" onload="this.media='all'">
+  <link rel="noscript" href="/src/css/animations.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div id="nav-container"></div>
+
+  <main id="main-content" class="page-main">
+    <div class="container">
+
+      <a href="/pages/work/" class="back-link" aria-label="Back to all work">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        All projects
+      </a>
+
+      <header class="page-header fade-in">
+        <p class="page-header__eyebrow">Project</p>
+        <h1 class="page-header__title">Figma-to-Code Showcase</h1>
+        <p class="page-header__desc">Scroll through design-to-implementation comparisons. Every pixel accounted for.</p>
+      </header>
+
+      <!-- Card component -->
+      <section class="compare-section fade-in" aria-label="Card component comparison">
+        <h2 class="compare-section__title">Card component</h2>
+        <div class="compare-grid">
+          <div class="compare-panel">
+            <div class="compare-panel__label">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              Figma design
+            </div>
+            <div class="figma-mock">
+              <div class="figma-mock__canvas">
+                <div class="figma-mock__annotation">
+                  <div class="demo-card__img" style="background:linear-gradient(135deg,#534ab7,#7f77dd);height:120px;border-radius:8px;margin:-16px -16px 12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:600">Image</div>
+                  <div style="font-size:14px;font-weight:600;color:#1a1a18;margin-bottom:4px">Project Title</div>
+                  <div style="font-size:12px;color:#6b6a65;line-height:1.5;margin-bottom:12px">A brief description of the project and its outcomes.</div>
+                  <div style="display:inline-block;font-size:12px;font-weight:500;color:#fff;background:#534ab7;padding:6px 16px;border-radius:8px">View project</div>
+                </div>
+                <div class="figma-mock__dimensions">320 x 280 &middot; Auto Layout</div>
+              </div>
+            </div>
+          </div>
+          <div class="compare-panel">
+            <div class="compare-panel__label">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              Live HTML/CSS
+            </div>
+            <div class="live-preview">
+              <div class="demo-card">
+                <div class="demo-card__img">Image</div>
+                <div class="demo-card__body">
+                  <div class="demo-card__title">Project Title</div>
+                  <div class="demo-card__desc">A brief description of the project and its outcomes.</div>
+                  <a href="#" class="demo-card__btn" aria-label="View project">View project</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <code class="code-block" aria-label="Card component CSS">&amp;lt;div class="card"&amp;gt;
+  &amp;lt;div class="card__image"&amp;gt;...&amp;lt;/div&amp;gt;
+  &amp;lt;div class="card__body"&amp;gt;
+    &amp;lt;h3&amp;gt;Project Title&amp;lt;/h3&amp;gt;
+    &amp;lt;p&amp;gt;Description text here.&amp;lt;/p&amp;gt;
+    &amp;lt;a href="#" class="btn"&amp;gt;View project&amp;lt;/a&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+.card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.card__image { height: 140px; background: linear-gradient(...); }
+.card__body { padding: 16px; }
+.card__title { font-size: 14px; font-weight: 600; }
+.card__desc { font-size: 12px; color: #6b6a65; }
+.card .btn { font-size: 12px; padding: 6px 16px; }</code>
+      </section>
+
+      <!-- Button variants -->
+      <section class="compare-section fade-in" aria-label="Button variants comparison">
+        <h2 class="compare-section__title">Button variants</h2>
+        <div class="compare-grid">
+          <div class="compare-panel">
+            <div class="compare-panel__label">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              Figma design
+            </div>
+            <div class="figma-mock">
+              <div class="figma-mock__canvas">
+                <div class="figma-mock__annotation">
+                  <div style="display:flex;flex-wrap:wrap;gap:12px">
+                    <span style="display:inline-block;font-size:14px;font-weight:500;color:#fff;background:#534ab7;padding:10px 24px;border-radius:8px">Primary</span>
+                    <span style="display:inline-block;font-size:14px;font-weight:500;color:#534ab7;background:transparent;padding:10px 24px;border-radius:8px;border:1px solid #534ab7">Secondary</span>
+                    <span style="display:inline-block;font-size:14px;font-weight:500;color:#6b6a65;background:transparent;padding:10px 24px;border-radius:8px">Ghost</span>
+                  </div>
+                </div>
+                <div class="figma-mock__dimensions">Component set &middot; Variants: 3</div>
+              </div>
+            </div>
+          </div>
+          <div class="compare-panel">
+            <div class="compare-panel__label">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              Live HTML/CSS
+            </div>
+            <div class="live-preview">
+              <div class="demo-buttons">
+                <button type="button" class="demo-btn demo-btn--primary">Primary</button>
+                <button type="button" class="demo-btn demo-btn--secondary">Secondary</button>
+                <button type="button" class="demo-btn demo-btn--ghost">Ghost</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <code class="code-block" aria-label="Button component CSS">&amp;lt;button class="btn btn--primary"&amp;gt;Primary&amp;lt;/button&amp;gt;
+&amp;lt;button class="btn btn--secondary"&amp;gt;Secondary&amp;lt;/button&amp;gt;
+&amp;lt;button class="btn btn--ghost"&amp;gt;Ghost&amp;lt;/button&amp;gt;
+
+.btn {
+  font-size: 14px; font-weight: 500;
+  padding: 10px 24px; border-radius: 8px;
+  border: none; cursor: pointer;
+}
+.btn--primary { background: #534ab7; color: #fff; }
+.btn--primary:hover { background: #4439a0; }
+.btn--secondary { background: transparent; color: #534ab7;
+  border: 1px solid #534ab7; }
+.btn--ghost { background: transparent; color: #6b6a65; }
+.btn--ghost:hover { background: rgba(0,0,0,0.04); }</code>
+      </section>
+
+      <!-- Input component -->
+      <section class="compare-section fade-in" aria-label="Input component comparison">
+        <h2 class="compare-section__title">Input component</h2>
+        <div class="compare-grid">
+          <div class="compare-panel">
+            <div class="compare-panel__label">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              Figma design
+            </div>
+            <div class="figma-mock">
+              <div class="figma-mock__canvas">
+                <div class="figma-mock__annotation">
+                  <div style="font-size:12px;font-weight:600;color:#1a1a18;margin-bottom:4px">Email address</div>
+                  <div style="font-size:14px;padding:8px 12px;border:1px solid rgba(0,0,0,0.12);border-radius:8px;color:#6b6a65">you@example.com</div>
+                  <div style="font-size:11px;color:#9c9a92;margin-top:4px">We will never share your email.</div>
+                </div>
+                <div class="figma-mock__dimensions">280px wide &middot; 8px border radius</div>
+              </div>
+            </div>
+          </div>
+          <div class="compare-panel">
+            <div class="compare-panel__label">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              Live HTML/CSS
+            </div>
+            <div class="live-preview">
+              <div class="demo-input-group">
+                <label for="demo-email">Email address</label>
+                <input type="email" id="demo-email" placeholder="you@example.com" aria-describedby="demo-email-hint">
+                <p class="hint" id="demo-email-hint">We will never share your email.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <code class="code-block" aria-label="Input component CSS">&amp;lt;div class="input-group"&amp;gt;
+  &amp;lt;label for="email"&amp;gt;Email address&amp;lt;/label&amp;gt;
+  &amp;lt;input type="email" id="email"
+    placeholder="you@example.com"&amp;gt;
+  &amp;lt;p class="hint"&amp;gt;We will never share your email.&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+
+.input-group label {
+  font-size: 12px; font-weight: 600;
+  display: block; margin-bottom: 4px;
+}
+.input-group input {
+  width: 100%; font-size: 14px;
+  padding: 8px 12px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 8px;
+}
+.input-group input:focus {
+  border-color: #534ab7;
+  box-shadow: 0 0 0 3px rgba(83,74,183,0.15);
+  outline: none;
+}</code>
+      </section>
+
+      <!-- Badge component -->
+      <section class="compare-section fade-in" aria-label="Badge component comparison">
+        <h2 class="compare-section__title">Badge component</h2>
+        <div class="compare-grid">
+          <div class="compare-panel">
+            <div class="compare-panel__label">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              Figma design
+            </div>
+            <div class="figma-mock">
+              <div class="figma-mock__canvas">
+                <div class="figma-mock__annotation">
+                  <div style="display:flex;flex-wrap:wrap;gap:8px">
+                    <span style="display:inline-block;font-size:11px;font-weight:600;padding:3px 12px;border-radius:9999px;background:#e6f4ea;color:#137333">New</span>
+                    <span style="display:inline-block;font-size:11px;font-weight:600;padding:3px 12px;border-radius:9999px;background:#fef7e0;color:#b06000">Hard</span>
+                    <span style="display:inline-block;font-size:11px;font-weight:600;padding:3px 12px;border-radius:9999px;background:#e8f0fe;color:#1967d2">Info</span>
+                  </div>
+                </div>
+                <div class="figma-mock__dimensions">3 variants &middot; Pill shape</div>
+              </div>
+            </div>
+          </div>
+          <div class="compare-panel">
+            <div class="compare-panel__label">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              Live HTML/CSS
+            </div>
+            <div class="live-preview">
+              <div class="demo-badges">
+                <span class="demo-badge demo-badge--success">New</span>
+                <span class="demo-badge demo-badge--warning">Hard</span>
+                <span class="demo-badge demo-badge--info">Info</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <code class="code-block" aria-label="Badge component CSS">&amp;lt;span class="badge badge--success"&amp;gt;New&amp;lt;/span&amp;gt;
+&amp;lt;span class="badge badge--warning"&amp;gt;Hard&amp;lt;/span&amp;gt;
+&amp;lt;span class="badge badge--info"&amp;gt;Info&amp;lt;/span&amp;gt;
+
+.badge {
+  font-size: 11px; font-weight: 600;
+  padding: 3px 12px; border-radius: 9999px;
+  display: inline-block;
+}
+.badge--success { background: #e6f4ea; color: #137333; }
+.badge--warning { background: #fef7e0; color: #b06000; }
+.badge--info    { background: #e8f0fe; color: #1967d2; }</code>
+      </section>
+
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/src/js/main.js" defer></script>
+</body>
+</html>

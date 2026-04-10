@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="All coded projects and case studies — filterable by skill tag.">
+  <meta name="theme-color" content="#534AB7">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://formspree.io; frame-ancestors 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta property="og:title" content="Work — Code &amp; Composite">
+  <meta property="og:description" content="All coded projects and case studies, filterable by skill.">
+  <meta property="og:image" content="/public/images/og/og-work.jpg">
+  <meta property="og:type" content="website">
+  <title>Work — Code &amp; Composite</title>
+  <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/css/tokens.css">
+  <link rel="stylesheet" href="/src/css/global.css">
+  <link rel="stylesheet" href="/src/css/layout.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <link rel="stylesheet" href="/src/css/animations.css">
+  <link rel="stylesheet" href="/src/css/dark-mode.css">
+  <script src="/src/js/main.js" defer></script>
+  <script src="/src/js/skill-filter.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="nav-container"></div>
+  <main id="main-content" class="page-main">
+    <div class="container">
+      <section class="fade-in" aria-label="Work projects">
+        <header class="section-header">
+          <p class="section-header__eyebrow">Work</p>
+          <h2 class="section-header__title">All projects</h2>
+          <p class="section-header__desc">Coded projects, case studies, and interactive tools. Filter by skill tag.</p>
+        </header>
+        <div id="skill-filter-container" class="tag-pill--group" style="margin-bottom:var(--space-xl)" aria-label="Filter projects by skill"></div>
+        <div class="grid grid-3" id="projects-grid"></div>
+        <div class="empty-state" id="empty-state" style="display:none" role="status">
+          <div class="empty-state__icon">🔍</div>
+          <h3 class="empty-state__title">No projects match this filter</h3>
+          <p class="empty-state__desc">Try selecting a different tag, or <button class="btn btn--ghost btn--sm" onclick="resetFilter()">reset to all</button>.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+  <div id="footer-container"></div>
+</body>
+</html>
