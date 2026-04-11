@@ -6,7 +6,7 @@
     "tags": ["JavaScript", "UI Design", "AI"],
     "description": "Paste a plain prompt, get a cinematic version back. Tone presets, shareable URLs, clipboard integration.",
     "url": "/work/prompt-enhancer/",
-    "og_image": "/public/images/og/og-prompt-enhancer.jpg",
+    "og_image": "/public/images/og/og-prompt-enhancer.png",
     "audience": ["it", "design"],
     "featured": true
   },
@@ -17,7 +17,7 @@
     "tags": ["SVG", "JavaScript", "DOM Manipulation"],
     "description": "Live search filter, colour picker that regenerates SVG fills, downloadable ZIP of all icons via JSZip.",
     "url": "/work/icon-system/",
-    "og_image": "/public/images/og/og-icon-system.jpg",
+    "og_image": "/public/images/og/og-icon-system.png",
     "audience": ["it"],
     "featured": true
   },
@@ -28,7 +28,7 @@
     "tags": ["CSS Custom Properties", "JavaScript", "Design Tokens", "UI Design"],
     "description": "Sliders update CSS custom properties in real time. Export as tokens.json or a :root {} block. Bridges design and dev in one URL.",
     "url": "/work/token-editor/",
-    "og_image": "/public/images/og/og-token-editor.jpg",
+    "og_image": "/public/images/og/og-token-editor.png",
     "audience": ["it", "design"],
     "featured": true
   },
@@ -39,7 +39,7 @@
     "tags": ["Accessibility", "WCAG", "JavaScript", "Color Theory"],
     "description": "WCAG AA/AAA pass/fail badges with contrast ratio. Suggests nearest compliant colour alternative.",
     "url": "/work/contrast-checker/",
-    "og_image": "/public/images/og/og-contrast-checker.jpg",
+    "og_image": "/public/images/og/og-contrast-checker.png",
     "audience": ["it"],
     "featured": false
   },
@@ -50,7 +50,7 @@
     "tags": ["HTML", "CSS", "Figma", "Pixel Perfect"],
     "description": "Side-by-side: Figma screenshot on left, live HTML/CSS on right. Scroll-synced. Design spec to pixel-perfect code.",
     "url": "/work/figma-to-code/",
-    "og_image": "/public/images/og/og-figma-to-code.jpg",
+    "og_image": "/public/images/og/og-figma-to-code.png",
     "audience": ["it", "design"],
     "featured": false
   },
@@ -61,7 +61,7 @@
     "tags": ["CSS Animations", "Keyframes", "Micro-interactions"],
     "description": "CSS keyframe demos across entrance, loading, and micro-interaction categories. Click a card to reveal the animation code.",
     "url": "/work/motion-playground/",
-    "og_image": "/public/images/og/og-motion-playground.jpg",
+    "og_image": "/public/images/og/og-motion-playground.png",
     "audience": ["it", "design"],
     "featured": false
   },
@@ -72,7 +72,7 @@
     "tags": ["HTML", "CSS", "Design Systems", "Accessibility"],
     "description": "15 reusable UI components — buttons, modals, toasts — documented Storybook-style. Systems thinking, not one-offs.",
     "url": "/work/component-library/",
-    "og_image": "/public/images/og/og-component-library.jpg",
+    "og_image": "/public/images/og/og-component-library.png",
     "audience": ["it"],
     "featured": false
   },
@@ -83,7 +83,7 @@
     "tags": ["Responsive Design", "JavaScript", "Dev Tools"],
     "description": "Drag a width slider to preview any URL at mobile/tablet/desktop. Shows active breakpoints visually.",
     "url": "/work/responsive-inspector/",
-    "og_image": "/public/images/og/og-responsive-inspector.jpg",
+    "og_image": "/public/images/og/og-responsive-inspector.png",
     "audience": ["it"],
     "featured": false
   }

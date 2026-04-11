@@ -5,7 +5,7 @@
     "tool": "Photoshop",
     "category": "photo-manipulation",
     "caption": "Layer masking, blend mode Screen, frequency separation retouching on a cityscape-portrait composite.",
-    "src": "/public/images/design-archive/double-exposure-01.jpg",
+    "src": "/public/images/design-archive/double-exposure-01.png",
     "alt": "Double exposure portrait blending a woman's silhouette with a city skyline",
     "audience": ["design"]
   },
@@ -15,7 +15,7 @@
     "tool": "Illustrator",
     "category": "brand-identity",
     "caption": "Logo set, colour palette, type pairings, and brand board for a fictional SaaS fintech company.",
-    "src": "/public/images/design-archive/brand-identity-fintech.jpg",
+    "src": "/public/images/design-archive/brand-identity-fintech.png",
     "alt": "Complete brand identity system including logo, colours, and typography for a fintech startup",
     "audience": ["design"]
   },
@@ -25,7 +25,7 @@
     "tool": "InDesign",
     "category": "print-editorial",
     "caption": "12-page editorial spread with typographic hierarchy, grid system, and image placement for an architecture quarterly.",
-    "src": "/public/images/design-archive/magazine-spread.jpg",
+    "src": "/public/images/design-archive/magazine-spread.png",
     "alt": "Magazine spread featuring architectural photography with clean typographic layout",
     "audience": ["design"]
   },
@@ -35,7 +35,7 @@
     "tool": "Figma",
     "category": "ui-design",
     "caption": "15 mobile screens with design system components, auto-layout, and dark mode variants.",
-    "src": "/public/images/design-archive/mobile-app-ui.jpg",
+    "src": "/public/images/design-archive/mobile-app-ui.png",
     "alt": "Mobile app UI design for a health tracking application showing multiple screens",
     "audience": ["design", "it"]
   },
@@ -45,7 +45,7 @@
     "tool": "Illustrator",
     "category": "data-viz",
     "caption": "Reimagined government climate data as an accessible, narrative-driven infographic. 'Here's how I would have visualised this better.'",
-    "src": "/public/images/design-archive/data-viz-climate.jpg",
+    "src": "/public/images/design-archive/data-viz-climate.png",
     "alt": "Infographic redesign of climate data with clear visual hierarchy and accessible colour choices",
     "audience": ["design"]
   },
@@ -55,7 +55,7 @@
     "tool": "Illustrator",
     "category": "process-teardown",
     "caption": "Annotated breakdown: grid construction, golden ratio spacing, colour rationale. Shows design literacy.",
-    "src": "/public/images/design-archive/logo-teardown-apple.jpg",
+    "src": "/public/images/design-archive/logo-teardown-apple.png",
     "alt": "Detailed analysis of the Apple logo showing grid construction and geometric proportions",
     "audience": ["design"]
   },
@@ -65,7 +65,7 @@
     "tool": "Illustrator",
     "category": "brand-identity",
     "caption": "Warm, earthy brand system for a specialty coffee roaster: logo, packaging, signage, cup sleeves.",
-    "src": "/public/images/design-archive/brand-identity-coffee.jpg",
+    "src": "/public/images/design-archive/brand-identity-coffee.png",
     "alt": "Coffee shop brand identity with warm earthy tones including logo and packaging design",
     "audience": ["design"]
   },
@@ -75,7 +75,7 @@
     "tool": "Photoshop",
     "category": "print-editorial",
     "caption": "Three poster designs using brutalist typography, high-contrast colour blocking, and asymmetric grid layouts.",
-    "src": "/public/images/design-archive/poster-brutalist.jpg",
+    "src": "/public/images/design-archive/poster-brutalist.png",
     "alt": "Set of three brutalist-style posters with bold typography and stark colour contrasts",
     "audience": ["design"]
   },
@@ -85,7 +85,7 @@
     "tool": "Figma",
     "category": "ui-design",
     "caption": "Component library for a SaaS analytics platform: 40+ components, tokens, variants, auto-layout patterns.",
-    "src": "/public/images/design-archive/dashboard-design-system.jpg",
+    "src": "/public/images/design-archive/dashboard-design-system.png",
     "alt": "Comprehensive design system for an analytics dashboard with reusable components",
     "audience": ["design", "it"]
   },
@@ -95,7 +95,7 @@
     "tool": "Illustrator",
     "category": "process-teardown",
     "caption": "Historical analysis of the Swoosh: why simplicity wins, how the curve communicates motion, spacing annotations.",
-    "src": "/public/images/design-archive/logo-teardown-nike.jpg",
+    "src": "/public/images/design-archive/logo-teardown-nike.png",
     "alt": "Geometric analysis of the Nike Swoosh logo showing curve proportions and motion dynamics",
     "audience": ["design"]
   }
